@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "Regular Approach",
+        "price": 69,
+        "img": "https://www.dreamhost.com/blog/wp-content/uploads/2018/09/elements-web-design-opt-750x498.jpg",
+        "description": "The teacher will instruct the student from the very basic of the topic thinking the student had never studied that chapter before. You can apply in this section if you want to hurry up your study or want to catch up with your course teacher in college."
+    },
+    {
+        "id": 2,
+        "title": "Problem Solving",
+        "price": 29,
+        "img": "https://www.sodapdf.com/blog/wp-content/uploads/2018/11/blog_seo.jpg",
+        "description": "Students can select any two chapters and can ask any problem or discuss any confusion regarding any topic relating to those chapters within 2 hours. "
+    },
+    {
+        "id": 3,
+        "title": "HSC Special",
+        "price": 67,
+        "img": "https://photographycourse.net/wp-content/uploads/2019/05/Adobe-Lightroom.jpeg",
+        "description": "HSC candidate can choose this option. Teacher will instruct the student a little quickly compared to regular approach. The teacher will try to cover all essential topics and the student is welcome to ask any questions. "
+    },
+    {
+        "id": 4,
+        "title": "Admission",
+        "price": 48,
+        "img": "https://dp4g669tqdae4.cloudfront.net/content/uploads/2019/09/12161658/Espanol.-Translation-Spanish.-Language-hand-drawn-doodles-and-lettering.-1087621188_7013x4954.jpg",
+        "description": "Techer will briefly discuss about the theory and give focus on problem solving of several types."
+    },
+    {
+        "id": 5,
+        "title": "Advanced",
+        "price": 48,
+        "img": "https://dp4g669tqdae4.cloudfront.net/content/uploads/2019/09/12161658/Espanol.-Translation-Spanish.-Language-hand-drawn-doodles-and-lettering.-1087621188_7013x4954.jpg",
+        "description": "If the student is interested in knowing about a particular topic more (sources from out of academic syllabus), he can choose this option."
+    }
+]

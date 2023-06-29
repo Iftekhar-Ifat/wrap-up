@@ -1,0 +1,21 @@
+.footer_style {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer_container {
+    background-color: #524a90;
+    height: 200px;
+}
+.footer_links a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+
+.socials {
+    display: flex;
+}

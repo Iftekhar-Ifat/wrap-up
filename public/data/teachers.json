@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Minhaj",
+        "institute": "SUST",
+        "dept": "Computer Science & Engineering",
+        "img": "https://drive.google.com/uc?export=view&id=1XBryULR_7XJYoKU-hJOnKU_DEDchS6e1",
+        "fb": "https://www.facebook.com/minhajahmed111",
+        "number": "01712934023;"
+    },
+    {
+        "id": 2,
+        "name": "Rafsun",
+        "institute": "BUET",
+        "dept": "Chemical Engineering",
+        "img": "https://drive.google.com/uc?export=view&id=1d3NenNtAmmkdDhsjlrvfQHg80u7TJoeA",
+        "fb": "https://www.facebook.com/rafsun.tahmid",
+        "number": "01712934023;"
+    },
+    {
+        "id": 3,
+        "name": "Faiyam",
+        "institute": "BUET",
+        "dept": "Chemical Engineering",
+        "img": "https://drive.google.com/uc?export=view&id=1-8qHeiqH-l6XPxV0US3n4Y9ShByBxf8w",
+        "fb": "https://www.facebook.com/faiyamchowdhury.chowdhury.1",
+        "number": "01712934023;"
+    },
+    {
+        "id": 4,
+        "name": "Yasir",
+        "institute": "BUET",
+        "dept": "Chemical Engineering",
+        "img": "https://drive.google.com/uc?export=view&id=11-54jSCcz5ghaUFGj2ZGdjNzmXZvPyhA",
+        "fb": "https://www.facebook.com/yasirarafath.khan.7",
+        "number": "01712934023;"
+    }
+]

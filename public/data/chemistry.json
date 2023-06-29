@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "chapter": "1",
+        "title": "Safe Use of Laboratory",
+        "code": "C-01",
+        "class1": "2 class - 500 TK",
+        "admission": "375 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 2,
+        "chapter": "2",
+        "title": "Quantitative Chemistry  ",
+        "code": "C-02",
+        "class1": "10 class - 2500 TK",
+        "admission": "400 TK",
+        "hsc": "375 TK"
+    },
+    {
+        "id": 3,
+        "chapter": "3",
+        "title": "Periodic Properties of Elements & Chemical Bonding",
+        "code": "C-03",
+        "class1": "10 class - 2500 TK",
+        "admission": "400 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 4,
+        "chapter": "4",
+        "title": "Chemical Changes",
+        "code": "C-04",
+        "class1": "12 class - 3000 TK",
+        "admission": "400 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 5,
+        "chapter": "5",
+        "title": "Application Oriented Chemistry",
+        "code": "C-05",
+        "class1": "4 class - 1000 TK",
+        "admission": "400 TK",
+        "hsc": "375 TK"
+    },
+    {
+        "id": 6,
+        "chapter": "6",
+        "title": "Environmental Chemistry",
+        "code": "C-06",
+        "class1": "8 class - 2000 TK",
+        "admission": "400 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 7,
+        "chapter": "7",
+        "title": "Organic Chemistry 01 [Introduction, Nomenclature of Organic Compounds, Isomerism)",
+        "code": "C-07",
+        "class1": "5 class - 1250 TK",
+        "admission": "400 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 8,
+        "chapter": "8",
+        "title": "Organic Chemistry 02 [ Alkane, Alkene, Alkine]",
+        "code": "C-08",
+        "class1": "3 class - 900 TK",
+        "admission": "400 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 9,
+        "chapter": "9",
+        "title": "Organic Chemistry 03 [Aromatic Hydrocarbon]",
+        "code": "C-09",
+        "class1": "4 class - 1000 TK",
+        "admission": "400 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 10,
+        "chapter": "10",
+        "title": "Organic Chemistry 04 [Alkyl Halide, Alcohol, Phenol]",
+        "code": "C-10",
+        "class1": "3 class - 900 TK",
+        "admission": "400 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 11,
+        "chapter": "11",
+        "title": "Organic Chemistry 05[Aldehyde, Ketone, Organic Acid]",
+        "code": "C-11",
+        "class1": "1 class - 250 TK",
+        "admission": "375 TK",
+        "hsc": "375 TK"
+    },
+    {
+        "id": 12,
+        "chapter": "12",
+        "title": "Organic Acid 06 [ Polymer]",
+        "code": "C-12",
+        "class1": "2 class - 600 TK",
+        "admission": "375 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 13,
+        "chapter": "13",
+        "title": "Stoichiometric Chemistry",
+        "code": "C-13",
+        "class1": "13 class - 2000 TK",
+        "admission": "375 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 14,
+        "chapter": "14",
+        "title": "Electro- Chemistry",
+        "code": "C-14",
+        "class1": "8 class - 2000 TK",
+        "admission": "375 TK",
+        "hsc": "400 TK"
+    },
+    {
+        "id": 15,
+        "chapter": "15",
+        "title": "Economic Chemistry",
+        "code": "C-15",
+        "class1": "8 class - 2000 TK",
+        "admission": "375 TK",
+        "hsc": "400 TK"
+    }
+]

@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "ques": "How do we enroll on a course?",
+        "ans": "First, you have to go to courses, choose a course and remember the chapter code and the number of classes from there. Once you've decided, click on Enroll now and you will be redirected to an application form. Fill that up. Then you will recieve an email containing further instructions. The email will also contain another payment form. You'll have to fill up the payment form after your payment. Upon completion of the mentioned processes, you will receive an email containing class time and class link."
+    },
+    {
+        "id": 2,
+        "ques": "I am an HSC examinee. But I am facing some problems on particular topics. Then which course should I enroll on?",
+        "ans": "If you are an HSC examinee and facing problems on particular topics in a chapter or two chapters, then problem solving course is perfect for you."
+    },
+    {
+        "id": 3,
+        "ques": "Isn't the price of those courses too high?",
+        "ans": "If you want to know the answer, you have to know what we offer. We will provide chapter wise courses and we think we are unique in that section. And we will provide one teacher for a student. But our services are indeed online and we take 250 taka for each class. Considering the services we provide, we believe amount is not too high."
+    },
+    {
+        "id": 4,
+        "ques": "Give your feedback to us",
+        "link": "https://forms.gle/AeMv3rn1WQm8RA198",
+        "click": "Click Here",
+        "here": "to drop your valuable feedback and help us improve."
+    }
+]
