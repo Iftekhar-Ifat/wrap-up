@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar';
 import Link from 'next/link';
 import Image from 'next/image';
 import MessengerIcon from '../public/assets/messenger.png';
+import Footer from '../components/HomePageComponent/Footer';
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }) {
                 </Link>
             </div>
             <Component {...pageProps} />
+            <Footer />
         </AuthProvider>
     );
 }
