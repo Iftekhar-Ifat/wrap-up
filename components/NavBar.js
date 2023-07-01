@@ -5,14 +5,38 @@ import Image from 'next/image';
 import { FaChalkboardTeacher, FaUserAlt } from 'react-icons/fa';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillChatLeftDotsFill } from 'react-icons/bs';
-import SignInModal from './AuthComponent/SignIn';
+import { useAuth } from '../context/AuthProvider';
+import CreateAccountModal from './AuthComponent/CreateAccountModal';
+import SignInModal from './AuthComponent/SignInModal';
 
 const NavBar = () => {
-    const [currentUser, setCurrentUser] = useState(true);
-    const [showModal, setShowModal] = useState(false);
-    const handleModalClose = () => {
-        setShowModal(false);
+    const auth = useAuth();
+    const { logOut } = useAuth();
+    const currentUser = auth.currentUser;
+
+    const [showCAModal, setShowCAModal] = useState(false);
+    const [showSignInModal, setShowSignInModal] = useState(false);
+
+    const handleCAModalClose = () => {
+        setShowCAModal(false);
     };
+    const handleSignInModalClose = () => {
+        setShowSignInModal(false);
+    };
+    const handleLogout = () => {
+        try {
+            logOut(auth)
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(error => {
+                    alert(error.message);
+                });
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
     return (
         <>
             <Navbar
@@ -66,32 +90,43 @@ const NavBar = () => {
                             <div className="d-flex text-white justify-content-center align-items-center md-w-25 w-100">
                                 {currentUser ? (
                                     <>
-                                        <div>
-                                            <Button
-                                                variant="light"
-                                                onClick={() =>
-                                                    setShowModal(true)
-                                                }
-                                            >
-                                                Sign In
-                                            </Button>
-                                        </div>
-                                    </>
-                                ) : (
-                                    <>
                                         <div
                                             className="text-center me-4"
                                             style={{ cursor: 'pointer' }}
                                         >
                                             <FaUserAlt size="30px" />{' '}
-                                            <div>Name</div>
+                                            <div>{currentUser.displayName}</div>
                                         </div>
                                         <div>
                                             <Button
                                                 variant="light"
                                                 className="ms-4"
+                                                onClick={handleLogout}
                                             >
                                                 Log Out
+                                            </Button>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="text-center me-4">
+                                            <Button
+                                                variant="light"
+                                                onClick={() =>
+                                                    setShowSignInModal(true)
+                                                }
+                                            >
+                                                Sign In
+                                            </Button>
+                                        </div>
+                                        <div>
+                                            <Button
+                                                variant="light"
+                                                onClick={() =>
+                                                    setShowCAModal(true)
+                                                }
+                                            >
+                                                Create Account
                                             </Button>
                                         </div>
                                     </>
@@ -101,11 +136,18 @@ const NavBar = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            {showModal ? (
+            {showCAModal ? (
+                <CreateAccountModal
+                    showModal={showCAModal}
+                    handleModalClose={handleCAModalClose}
+                    setShowModal={setShowCAModal}
+                />
+            ) : null}
+            {showSignInModal ? (
                 <SignInModal
-                    showModal={showModal}
-                    handleModalClose={handleModalClose}
-                    setShowModal={setShowModal}
+                    showModal={showSignInModal}
+                    handleModalClose={handleSignInModalClose}
+                    setShowModal={setShowSignInModal}
                 />
             ) : null}
         </>
