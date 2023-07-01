@@ -2,26 +2,29 @@ import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthProvider from '../context/AuthProvider';
 import NavBar from '../components/NavBar';
-import Link from 'next/link';
-import Image from 'next/image';
-import MessengerIcon from '../public/assets/messenger.png';
 import Footer from '../components/HomePageComponent/Footer';
+import { useRouter } from 'next/router';
+import ProtectedRoute from '../components/ProtectedRoute';
+
+const publicRoute = ['/', '/about-us', '/courses'];
 
 function MyApp({ Component, pageProps }) {
+    const router = useRouter();
     return (
         <AuthProvider>
-            <NavBar />
-            <div className="position-fixed fixed-bottom d-flex justify-content-end">
-                <Link href="https://m.me/wrapupeducation">
-                    <Image
-                        alt="messenger-icon"
-                        src={MessengerIcon}
-                        width="50"
-                    />
-                </Link>
-            </div>
-            <Component {...pageProps} />
-            <Footer />
+            {publicRoute.includes(router.pathname) ? (
+                <>
+                    <NavBar />
+                    <Component {...pageProps} />
+                    <Footer />
+                </>
+            ) : (
+                <ProtectedRoute>
+                    <NavBar />
+                    <Component {...pageProps} />
+                    <Footer />
+                </ProtectedRoute>
+            )}
         </AuthProvider>
     );
 }

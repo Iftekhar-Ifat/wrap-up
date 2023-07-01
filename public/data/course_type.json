@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Regular 1v1",
+        "key": "regular_1v1"
+    },
+    {
+        "id": 2,
+        "title": "Regular 1v3 (Single)",
+        "key": "regular_1v3_single"
+    },
+    {
+        "id": 3,
+        "title": "Regular 1v3 (Group)",
+        "key": "regular_1v3_group"
+    },
+    {
+        "id": 4,
+        "title": "Test Paper Solve",
+        "key": "test_paper_solve"
+    }
+]

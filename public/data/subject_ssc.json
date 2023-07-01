@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Physics",
+        "key": "physics"
+    },
+    {
+        "id": 2,
+        "title": "Chemistry",
+        "key": "chemistry"
+    },
+    {
+        "id": 3,
+        "title": "Math",
+        "key": "math"
+    },
+    {
+        "id": 4,
+        "title": "Higher Math",
+        "key": "higher_math"
+    }
+]

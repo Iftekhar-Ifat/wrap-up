@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthProvider';
-import { firebaseDB } from '../../lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
 
-const SignInModal = ({ showModal, handleModalClose, setShowModal }) => {
+const SignInModal = ({
+    showModal,
+    handleModalClose,
+    setShowModal,
+    setShowCAModal,
+}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -69,6 +72,21 @@ const SignInModal = ({ showModal, handleModalClose, setShowModal }) => {
                         >
                             {isLoading ? 'Loading…' : 'Sign In'}
                         </Button>
+                    </div>
+
+                    <div className="d-flex justify-content-center">
+                        <span className="me-2">
+                            Don&apos;t Have an account?{' '}
+                        </span>
+                        <span
+                            style={{ color: 'blue', cursor: 'pointer' }}
+                            onClick={() => {
+                                setShowModal(false);
+                                setShowCAModal(true);
+                            }}
+                        >
+                            Create an account
+                        </span>
                     </div>
                 </Form>
             </Modal.Body>

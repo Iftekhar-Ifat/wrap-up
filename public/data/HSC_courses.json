@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "subject": "physics",
+        "course_type": {
+            "regular": {
+                "chapters": [
+                    {
+                        "chapter_name": "vector",
+                        "total_class": 5,
+                        "price": 2000
+                    }
+                ]
+            },
+            "test_paper_solve": {
+                "chapters": [
+                    {
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            },
+            "solve_class": {
+                "chapters": [
+                    {
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": 2,
+        "subject": "chemistry",
+        "course_type": {
+            "regular": {
+                "chapters": [
+                    {
+                        "chapter_name": "vector",
+                        "total_class": 5,
+                        "price": 2000
+                    }
+                ]
+            },
+            "test_paper_solve": {
+                "chapters": [
+                    {
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            },
+            "solve_class": {
+                "chapters": [
+                    {
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            }
+        }
+    }
+]

@@ -1,0 +1,96 @@
+[
+    {
+        "id": 1,
+        "program": "ssc",
+        "subject": "physics",
+        "course_type": {
+            "regular_1v1": {
+                "chapters": [
+                    {
+                        "chapter_id": 1,
+                        "chapter_name": "দুইটা ব্যাপারে আমার একটু জানার ছিলো।",
+                        "total_class": 5,
+                        "price": 2000
+                    }
+                ]
+            },
+            "regular_1v3": {
+                "chapters": [
+                    {
+                        "chapter_id": 2,
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            },
+            "Quick_Revision": {
+                "chapters": [
+                    {
+                        "chapter_id": 3,
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            },
+            "test_paper_solve": {
+                "chapters": [
+                    {
+                        "chapter_id": 4,
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "id": 2,
+        "program": "hsc",
+        "subject": "chemistry",
+        "course_type": {
+            "regular": {
+                "chapters": [
+                    {
+                        "chapter_id": 1,
+                        "chapter_name": "Organic Chemistry",
+                        "total_class": 5,
+                        "price": 2000
+                    }
+                ]
+            },
+            "regular_1v3": {
+                "chapters": [
+                    {
+                        "chapter_id": 2,
+                        "chapter_name": "Environmental Chemistry",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            },
+            "Quiik_Revision": {
+                "chapters": [
+                    {
+                        "chapter_id": 3,
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            },
+            "test_paper_solve": {
+                "chapters": [
+                    {
+                        "chapter_id": 4,
+                        "chapter_name": "vector",
+                        "total_class": 1,
+                        "price": 2000
+                    }
+                ]
+            }
+        }
+    }
+]

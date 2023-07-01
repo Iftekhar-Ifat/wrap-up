@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaChalkboardTeacher, FaUserAlt } from 'react-icons/fa';
@@ -8,11 +8,13 @@ import { BsFillChatLeftDotsFill } from 'react-icons/bs';
 import { useAuth } from '../context/AuthProvider';
 import CreateAccountModal from './AuthComponent/CreateAccountModal';
 import SignInModal from './AuthComponent/SignInModal';
+import { useRouter } from 'next/router';
 
 const NavBar = () => {
     const auth = useAuth();
     const { logOut } = useAuth();
     const currentUser = auth.currentUser;
+    const router = useRouter();
 
     const [showCAModal, setShowCAModal] = useState(false);
     const [showSignInModal, setShowSignInModal] = useState(false);
@@ -27,7 +29,7 @@ const NavBar = () => {
         try {
             logOut(auth)
                 .then(response => {
-                    console.log(response);
+                    router.push('/');
                 })
                 .catch(error => {
                     alert(error.message);
@@ -90,13 +92,18 @@ const NavBar = () => {
                             <div className="d-flex text-white justify-content-center align-items-center md-w-25 w-100">
                                 {currentUser ? (
                                     <>
-                                        <div
+                                        <Link
                                             className="text-center me-4"
-                                            style={{ cursor: 'pointer' }}
+                                            style={{
+                                                cursor: 'pointer',
+                                                color: 'white',
+                                                textDecoration: 'none',
+                                            }}
+                                            href="/profile"
                                         >
                                             <FaUserAlt size="30px" />{' '}
                                             <div>{currentUser.displayName}</div>
-                                        </div>
+                                        </Link>
                                         <div>
                                             <Button
                                                 variant="light"
@@ -148,6 +155,7 @@ const NavBar = () => {
                     showModal={showSignInModal}
                     handleModalClose={handleSignInModalClose}
                     setShowModal={setShowSignInModal}
+                    setShowCAModal={setShowCAModal}
                 />
             ) : null}
         </>

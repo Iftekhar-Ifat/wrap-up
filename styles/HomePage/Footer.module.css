@@ -8,6 +8,8 @@
 .footer_container {
     background-color: #524a90;
     height: 200px;
+    position: sticky;
+    bottom: 0;
 }
 .footer_links a {
     display: block;
