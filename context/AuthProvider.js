@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
             });
             return user;
         } catch (error) {
-            console.log(error.message);
+            alert(error.message);
         }
     }
 

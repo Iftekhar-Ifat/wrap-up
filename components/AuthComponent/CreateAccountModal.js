@@ -26,6 +26,7 @@ const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
                         name,
                         email,
                         status,
+                        enrolled_courses: [],
                     });
                     setShowModal(false);
                 })

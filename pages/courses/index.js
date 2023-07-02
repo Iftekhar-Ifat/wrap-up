@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProgramTab from '../../components/CourseCard/ProgramTab';
+import ProgramTab from '../../components/CourseComponent/ProgramTab';
 import { Button } from 'react-bootstrap';
 
 const Courses = () => {

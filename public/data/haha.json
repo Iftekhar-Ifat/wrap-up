@@ -11,6 +11,12 @@
                         "chapter_name": "দুইটা ব্যাপারে আমার একটু জানার ছিলো।",
                         "total_class": 5,
                         "price": 2000
+                    },
+                    {
+                        "chapter_id": 2,
+                        "chapter_name": "দুইটা ব্যাপারে আমার",
+                        "total_class": 5,
+                        "price": 2000
                     }
                 ]
             },
