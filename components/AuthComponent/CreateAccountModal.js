@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthProvider';
-import { firebaseDB } from '../../lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { firebaseDB, collection, addDoc } from '../../lib/firebase';
 
 const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
     const [name, setName] = useState('');

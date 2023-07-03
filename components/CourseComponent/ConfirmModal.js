@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Card, Modal } from 'react-bootstrap';
-import { firebaseDB } from '../../lib/firebase';
 import {
+    firebaseDB,
     collection,
     doc,
     getDocs,
     query,
     updateDoc,
     where,
-} from 'firebase/firestore';
+} from '../../lib/firebase';
+
 import { useAuth } from '../../context/AuthProvider';
 
 const ConfirmModal = ({

@@ -1,12 +1,12 @@
 import {
+    firebaseDB,
     collection,
     getDocs,
     query,
     where,
     updateDoc,
     getDoc,
-} from 'firebase/firestore';
-import { firebaseDB } from '../lib/firebase';
+} from '../lib/firebase';
 
 const getCurrentUser = async currentUserEmail => {
     // Create a query to find the document with the matching email

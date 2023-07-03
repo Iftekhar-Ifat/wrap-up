@@ -31,19 +31,10 @@ const StatusInfoModal = ({ showModal, setShowModal }) => {
                 </div>
                 <div className="d-flex justify-content-start align-items-center m-2">
                     <div className="w-25">
-                        <Badge bg="info">On going</Badge>
-                        <BsArrowRightShort size="25px" />
-                    </div>
-                    <div>
-                        Payment is approved by admin and course is on going
-                    </div>
-                </div>
-                <div className="d-flex justify-content-start align-items-center m-2">
-                    <div className="w-25">
                         <Badge bg="success">Completed</Badge>
                         <BsArrowRightShort size="25px" />
                     </div>
-                    <div>The course is completed</div>
+                    <div>Admin approved your payment</div>
                 </div>
             </Modal.Body>
         </Modal>

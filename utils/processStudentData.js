@@ -11,6 +11,7 @@ export default async function processStudentData(studnets) {
                     course_detail: [],
                     number: course.purchase_info[0].phoneNumber,
                     transactionId: course.purchase_info[0].transactionID,
+                    status: course.status,
                 };
                 course.chapters.forEach(chapter => {
                     const eachCourseDetail = {

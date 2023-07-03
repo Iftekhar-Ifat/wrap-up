@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthProvider';
 import styles from '../../styles/ProfilePage/Profile.module.css';
 import CourseInfoCard from '../../components/ProfileComponent/CourseInfoCard';
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
-import { firebaseDB } from '../../lib/firebase';
+import {
+    firebaseDB,
+    collection,
+    query,
+    where,
+    onSnapshot,
+} from '../../lib/firebase';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import StatusInfoModal from '../../components/ProfileComponent/StatusInfoModal';
 import Dashboard from '../../components/ProfileComponent/Dashboard';

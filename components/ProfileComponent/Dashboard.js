@@ -1,32 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
-import { getAllStudents } from '../../utils/clientAPI';
 import processStudentData from '../../utils/processStudentData';
+import {
+    firebaseDB,
+    collection,
+    onSnapshot,
+    query,
+    where,
+} from '../../lib/firebase';
 
 const Dashboard = () => {
     const [students, setStudents] = useState([]);
 
-    const handleCancel = id => {
+    const handleRemove = student => {
         // Handle cancel button click
-        console.log(`Cancel clicked for student with id ${id}`);
+        console.log(student);
     };
 
-    const handleAccept = id => {
+    const handleApprove = student => {
         // Handle accept button click
-        console.log(`Accept clicked for student with id ${id}`);
+        console.log(student);
     };
-
     useEffect(() => {
-        const fetchStudents = async () => {
-            try {
-                const result = await getAllStudents();
-                const allStudnetsArray = await processStudentData(result);
-                setStudents(allStudnetsArray);
-            } catch (error) {
-                console.error('Error fetching users:', error);
-            }
-        };
-        fetchStudents();
+        const q = query(
+            collection(firebaseDB, 'users'),
+            where('role', '==', 'student')
+        );
+        const unsubscribe = onSnapshot(q, async querySnapshot => {
+            const users = querySnapshot.docs.map(doc => doc.data());
+
+            const allStudnetsArray = await processStudentData(users);
+            setStudents(allStudnetsArray);
+        });
+
+        return () => unsubscribe(); // Clean up the listener when the component unmounts
     }, []);
 
     return (
@@ -77,18 +84,37 @@ const Dashboard = () => {
                             <td>{student.number}</td>
                             <td>{student.transactionId}</td>
                             <td>
-                                <Button
-                                    variant="danger"
-                                    onClick={() => handleCancel(student.id)}
-                                >
-                                    Cancel
-                                </Button>{' '}
-                                <Button
-                                    variant="success"
-                                    onClick={() => handleAccept(student.id)}
-                                >
-                                    Accept
-                                </Button>
+                                {student.status === 'Completed' ? (
+                                    <Button
+                                        variant="success"
+                                        disabled
+                                        className="m-1"
+                                        onClick={() => handleRemove(student)}
+                                    >
+                                        Completed
+                                    </Button>
+                                ) : (
+                                    <>
+                                        <Button
+                                            variant="danger"
+                                            className="m-1"
+                                            onClick={() =>
+                                                handleRemove(student)
+                                            }
+                                        >
+                                            Remove
+                                        </Button>
+                                        <Button
+                                            className="m-1"
+                                            variant="success"
+                                            onClick={() =>
+                                                handleApprove(student)
+                                            }
+                                        >
+                                            Approve
+                                        </Button>
+                                    </>
+                                )}
                             </td>
                         </tr>
                     ))}
