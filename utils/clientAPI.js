@@ -6,6 +6,8 @@ import {
     where,
     updateDoc,
     getDoc,
+    doc,
+    arrayRemove,
 } from '../lib/firebase';
 
 const getCurrentUser = async currentUserEmail => {
@@ -127,4 +129,73 @@ const getAllStudents = async () => {
     }
 };
 
-export { getCurrentUser, deleteCourse, purchaseCourse, getAllStudents };
+const removeEnrollment = async (userEmail, courseKey) => {
+    const usersCollectionRef = collection(firebaseDB, 'users');
+    const q = query(usersCollectionRef, where('email', '==', userEmail));
+
+    try {
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userDocRef = doc(firebaseDB, 'users', userDoc.id);
+
+            const enrolledCourses = userDoc.data().enrolled_courses;
+            const updatedCourses = enrolledCourses.filter(
+                course => course.key !== courseKey
+            );
+
+            await updateDoc(userDocRef, {
+                enrolled_courses: updatedCourses,
+            });
+
+            console.log('Enrolled course deleted successfully.');
+        } else {
+            console.log('No user found with the provided email.');
+        }
+    } catch (error) {
+        console.error('Error deleting enrolled course:', error);
+    }
+};
+
+const acceptEnrollment = async (userEmail, courseKey) => {
+    const usersCollectionRef = collection(firebaseDB, 'users');
+    const q = query(usersCollectionRef, where('email', '==', userEmail));
+
+    try {
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userDocRef = doc(firebaseDB, 'users', userDoc.id);
+
+            const enrolledCourses = userDoc.data().enrolled_courses;
+            const updatedCourses = enrolledCourses.map(course => {
+                if (course.key === courseKey) {
+                    return {
+                        ...course,
+                        status: 'Completed',
+                    };
+                }
+                return course;
+            });
+
+            await updateDoc(userDocRef, {
+                enrolled_courses: updatedCourses,
+            });
+
+            console.log('Enrolled course status updated successfully.');
+        } else {
+            console.log('No user found with the provided email.');
+        }
+    } catch (error) {
+        console.error('Error updating enrolled course status:', error);
+    }
+};
+
+export {
+    getCurrentUser,
+    deleteCourse,
+    purchaseCourse,
+    getAllStudents,
+    removeEnrollment,
+    acceptEnrollment,
+};

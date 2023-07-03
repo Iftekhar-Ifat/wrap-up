@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import processStudentData from '../../utils/processStudentData';
 import {
@@ -8,18 +8,29 @@ import {
     query,
     where,
 } from '../../lib/firebase';
+import { acceptEnrollment, removeEnrollment } from '../../utils/clientAPI';
 
 const Dashboard = () => {
     const [students, setStudents] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleRemove = student => {
+    const handleRemove = async student => {
+        setIsLoading(true);
         // Handle cancel button click
-        console.log(student);
+        const userEmail = student.email;
+        const courseKey = student.course_detail[0].course_key;
+        await removeEnrollment(userEmail, courseKey);
+
+        setIsLoading(false);
     };
 
-    const handleApprove = student => {
-        // Handle accept button click
-        console.log(student);
+    const handleApprove = async student => {
+        setIsLoading(true);
+        const userEmail = student.email;
+        const courseKey = student.course_detail[0].course_key;
+        await acceptEnrollment(userEmail, courseKey);
+
+        setIsLoading(false);
     };
     useEffect(() => {
         const q = query(
@@ -98,20 +109,22 @@ const Dashboard = () => {
                                         <Button
                                             variant="danger"
                                             className="m-1"
+                                            disabled={isLoading}
                                             onClick={() =>
                                                 handleRemove(student)
                                             }
                                         >
-                                            Remove
+                                            {isLoading ? 'Loading…' : 'Remove'}
                                         </Button>
                                         <Button
                                             className="m-1"
                                             variant="success"
+                                            disabled={isLoading}
                                             onClick={() =>
                                                 handleApprove(student)
                                             }
                                         >
-                                            Approve
+                                            {isLoading ? 'Loading…' : 'Approve'}
                                         </Button>
                                     </>
                                 )}

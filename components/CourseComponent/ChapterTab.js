@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button } from 'react-bootstrap';
-import classes from '../../public/data/haha.json';
+import hsc_classes from '../../public/data/courses.json';
+import ssc_classes from '../../public/data/haha.json';
 import ChapterComponent from './ChapterComponent';
 import ConfirmModal from './ConfirmModal';
 import { generateUniqueKey } from '../../utils/random_key';
@@ -17,9 +18,15 @@ const ChapterTab = ({ program, course_type, subject }) => {
         setShowEnrollModal(false);
     };
 
-    const filteredClasses = classes.filter(
-        item => item.program === program && item.subject === subject
-    );
+    console.log(program, course_type, subject);
+
+    let filteredClasses;
+
+    if (program === 'hsc') {
+        filteredClasses = hsc_classes.filter(item => item.subject === subject);
+    } else if (program === 'ssc') {
+        filteredClasses = ssc_classes.filter(item => item.subject === subject);
+    }
 
     const handleCheckboxChange = chapter => {
         setSelectedChapters(prevSelectedChapters => {
