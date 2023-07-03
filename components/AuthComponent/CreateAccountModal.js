@@ -21,11 +21,11 @@ const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
             await signUp(email, password, name)
                 .then(async () => {
                     const usersCollection = collection(firebaseDB, 'users');
-                    const status = 'student';
+                    const role = 'student';
                     await addDoc(usersCollection, {
                         name,
                         email,
-                        status,
+                        role,
                         enrolled_courses: [],
                     });
                     setShowModal(false);

@@ -111,4 +111,20 @@ const purchaseCourse = async (
     }
 };
 
-export { getCurrentUser, deleteCourse, purchaseCourse };
+const getAllStudents = async () => {
+    const q = query(
+        collection(firebaseDB, 'users'),
+        where('role', '==', 'student')
+    );
+
+    try {
+        const querySnapshot = await getDocs(q);
+        const users = querySnapshot.docs.map(doc => doc.data());
+        return users;
+    } catch (error) {
+        console.error('Error getting users by role:', error);
+        return [];
+    }
+};
+
+export { getCurrentUser, deleteCourse, purchaseCourse, getAllStudents };

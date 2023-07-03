@@ -6,10 +6,12 @@ import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { firebaseDB } from '../../lib/firebase';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import StatusInfoModal from '../../components/ProfileComponent/StatusInfoModal';
+import Dashboard from '../../components/ProfileComponent/Dashboard';
 
 const Profile = () => {
     const currentUser = useAuth().currentUser;
     const [enrolledCourses, setEnrolledCourses] = useState(null);
+    const [currentUserRole, setCurrentUserRole] = useState();
 
     const [showStatusInfoModal, setShowStatusInfoModal] = useState(false);
 
@@ -23,6 +25,7 @@ const Profile = () => {
                 if (!querySnapshot.empty) {
                     const userDocSnapshot = querySnapshot.docs[0];
                     if (userDocSnapshot.exists()) {
+                        setCurrentUserRole(userDocSnapshot.data().role);
                         const enrolledCoursesData =
                             userDocSnapshot.data().enrolled_courses;
                         setEnrolledCourses(enrolledCoursesData);
@@ -39,23 +42,27 @@ const Profile = () => {
             <h1 className="d-flex justify-content-center">
                 {currentUser.displayName}
             </h1>
-            <div className="m-4">
-                <div className="d-flex justify-content-between align-items-center">
-                    <h2>Purchased Courses:</h2>
-                    <BsInfoCircleFill
-                        size="30px"
-                        style={{ cursor: 'pointer' }}
-                        onClick={() => setShowStatusInfoModal(true)}
-                    />
+            {currentUserRole === 'student' ? (
+                <div className="m-4">
+                    <div className="d-flex justify-content-between align-items-center">
+                        <h2>Purchased Courses:</h2>
+                        <BsInfoCircleFill
+                            size="30px"
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => setShowStatusInfoModal(true)}
+                        />
+                    </div>
+                    {enrolledCourses
+                        ? enrolledCourses.map(course => (
+                              <div key={course.key}>
+                                  <CourseInfoCard course={course} />
+                              </div>
+                          ))
+                        : null}
                 </div>
-                {enrolledCourses
-                    ? enrolledCourses.map(course => (
-                          <div key={course.key}>
-                              <CourseInfoCard course={course} />
-                          </div>
-                      ))
-                    : null}
-            </div>
+            ) : (
+                <Dashboard />
+            )}
             {showStatusInfoModal ? (
                 <StatusInfoModal
                     showModal={showStatusInfoModal}
