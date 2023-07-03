@@ -4,8 +4,10 @@ import classes from '../../public/data/haha.json';
 import ChapterComponent from './ChapterComponent';
 import ConfirmModal from './ConfirmModal';
 import { generateUniqueKey } from '../../utils/random_key';
+import { useAuth } from '../../context/AuthProvider';
 
 const ChapterTab = ({ program, course_type, subject }) => {
+    const currentUser = useAuth().currentUser;
     const [selectedChapters, setSelectedChapters] = useState([]);
     const [error, setError] = useState();
     const [showEnrollModal, setShowEnrollModal] = useState(false);
@@ -44,20 +46,24 @@ const ChapterTab = ({ program, course_type, subject }) => {
     const handleEnroll = async () => {
         // Handle the enroll button click
 
-        const randomKey = generateUniqueKey(5);
-        const selectedItems = {
-            key: randomKey,
-            program: program,
-            course_type: course_type,
-            subject: subject,
-            chapters: selectedChapters,
-            status: 'Enrolled',
-        };
-        if (selectedChapters.length) {
-            setEnrolledObject(selectedItems);
-            setShowEnrollModal(true);
+        if (!currentUser) {
+            alert('You need to Sign In to enroll the courses');
         } else {
-            setError('No chapter is selected');
+            const randomKey = generateUniqueKey(5);
+            const selectedItems = {
+                key: randomKey,
+                program: program,
+                course_type: course_type,
+                subject: subject,
+                chapters: selectedChapters,
+                status: 'Enrolled',
+            };
+            if (selectedChapters.length) {
+                setEnrolledObject(selectedItems);
+                setShowEnrollModal(true);
+            } else {
+                setError('No chapter is selected');
+            }
         }
     };
 

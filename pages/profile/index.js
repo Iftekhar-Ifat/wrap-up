@@ -4,10 +4,14 @@ import styles from '../../styles/ProfilePage/Profile.module.css';
 import CourseInfoCard from '../../components/ProfileComponent/CourseInfoCard';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { firebaseDB } from '../../lib/firebase';
+import { BsInfoCircleFill } from 'react-icons/bs';
+import StatusInfoModal from '../../components/ProfileComponent/StatusInfoModal';
 
 const Profile = () => {
     const currentUser = useAuth().currentUser;
     const [enrolledCourses, setEnrolledCourses] = useState(null);
+
+    const [showStatusInfoModal, setShowStatusInfoModal] = useState(false);
 
     useEffect(() => {
         const unsubscribe = onSnapshot(
@@ -36,7 +40,14 @@ const Profile = () => {
                 {currentUser.displayName}
             </h1>
             <div className="m-4">
-                <h2>Purchased Courses:</h2>
+                <div className="d-flex justify-content-between align-items-center">
+                    <h2>Purchased Courses:</h2>
+                    <BsInfoCircleFill
+                        size="30px"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => setShowStatusInfoModal(true)}
+                    />
+                </div>
                 {enrolledCourses
                     ? enrolledCourses.map(course => (
                           <div key={course.key}>
@@ -45,6 +56,12 @@ const Profile = () => {
                       ))
                     : null}
             </div>
+            {showStatusInfoModal ? (
+                <StatusInfoModal
+                    showModal={showStatusInfoModal}
+                    setShowModal={setShowStatusInfoModal}
+                />
+            ) : null}
         </div>
     );
 };
