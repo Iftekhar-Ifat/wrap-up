@@ -63,4 +63,52 @@ const deleteCourse = async (currentUserEmail, courseKey) => {
     }
 };
 
-export { getCurrentUser, deleteCourse };
+const purchaseCourse = async (
+    currentUserEmail,
+    courseKey,
+    phoneNumber,
+    transactionID
+) => {
+    const q = query(
+        collection(firebaseDB, 'users'),
+        where('email', '==', currentUserEmail)
+    );
+
+    try {
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const userDocRef = querySnapshot.docs[0].ref;
+            const userDocSnapshot = await getDoc(userDocRef);
+            if (userDocSnapshot.exists()) {
+                const enrolledCourses = userDocSnapshot.data().enrolled_courses;
+                const updatedCourses = enrolledCourses.map(course => {
+                    if (course.key === courseKey) {
+                        return {
+                            ...course,
+                            purchase_info: [
+                                {
+                                    phoneNumber: phoneNumber,
+                                    transactionID: transactionID,
+                                },
+                            ],
+                            status: 'In Progress',
+                        };
+                    }
+                    return course;
+                });
+                await updateDoc(userDocRef, {
+                    enrolled_courses: updatedCourses,
+                });
+                console.log('Course purchased successfully.');
+            } else {
+                console.log('User document does not exist.');
+            }
+        } else {
+            console.log('No user found with the provided email.');
+        }
+    } catch (error) {
+        console.error('Error purchasing the course:', error);
+    }
+};
+
+export { getCurrentUser, deleteCourse, purchaseCourse };

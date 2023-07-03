@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import CourseStatus from './CourseStatus';
 import CancelModal from './CancelModal';
+import PurchaseModal from './PurchaseModal';
 
 const CourseInfoCard = ({ course }) => {
     const [showCancelModal, setShowCancelModal] = useState(false);
+    const [showPurchaseModal, setShowPurchaseModal] = useState(false);
 
     const handleUpdate = () => {
-        console.log(course);
+        setShowPurchaseModal(true);
     };
     const handleCancel = async () => {
         setShowCancelModal(true);
@@ -54,7 +56,7 @@ const CourseInfoCard = ({ course }) => {
                             onClick={handleUpdate}
                             className="ms-4"
                         >
-                            Update
+                            Purchase
                         </Button>
                     </div>
                 </Card.Body>
@@ -64,6 +66,13 @@ const CourseInfoCard = ({ course }) => {
                     showModal={showCancelModal}
                     setShowModal={setShowCancelModal}
                     cancelCourse={course}
+                />
+            ) : null}
+            {showPurchaseModal ? (
+                <PurchaseModal
+                    showModal={showPurchaseModal}
+                    setShowModal={setShowPurchaseModal}
+                    course={course}
                 />
             ) : null}
         </>
