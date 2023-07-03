@@ -54,7 +54,6 @@ const ChapterTab = ({ program, course_type, subject }) => {
             status: 'Enrolled',
         };
         if (selectedChapters.length) {
-            console.log(selectedItems);
             setEnrolledObject(selectedItems);
             setShowEnrollModal(true);
         } else {
