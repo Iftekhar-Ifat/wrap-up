@@ -16,7 +16,7 @@ import FAQ from './FAQ';
 const ServiceSection = () => {
     const [category, setCategory] = useState([]);
     useEffect(() => {
-        fetch('/data/courses.json')
+        fetch('/data/category.json')
             .then(res => res.json())
             .then(data => setCategory(data));
     }, []);

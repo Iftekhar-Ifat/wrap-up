@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button } from 'react-bootstrap';
-import hsc_classes from '../../public/data/courses.json';
+import hsc_classes from '../../public/data/hsc_courses.json';
 import ssc_classes from '../../public/data/haha.json';
 import ChapterComponent from './ChapterComponent';
 import ConfirmModal from './ConfirmModal';
@@ -17,8 +17,6 @@ const ChapterTab = ({ program, course_type, subject }) => {
     const handleEnrollModalClose = () => {
         setShowEnrollModal(false);
     };
-
-    console.log(program, course_type, subject);
 
     let filteredClasses;
 
