@@ -1,7 +1,7 @@
 import React from 'react';
 import IntroSection from '../components/HomePageComponent/IntroSection';
-import styles from '../styles/HomePage/Home.module.css';
 import ServiceSection from '../components/HomePageComponent/ServiceSection';
+import styles from '../styles/HomePage/Home.module.css';
 
 const index = () => {
     return (

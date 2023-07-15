@@ -7,11 +7,21 @@ const PurchaseModal = ({ showModal, setShowModal, course }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [transactionID, setTransactionID] = useState('');
+    const [formValidated, setFormValidated] = useState(false);
     const currentUserEmail = useAuth().currentUser.email;
 
-    const handlePurchase = async e => {
+    const handleFormSubmit = e => {
         e.preventDefault();
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.stopPropagation();
+        } else {
+            setFormValidated(true);
+            handlePurchase();
+        }
+    };
 
+    const handlePurchase = async () => {
         try {
             setIsLoading(true);
             await purchaseCourse(
@@ -35,6 +45,7 @@ const PurchaseModal = ({ showModal, setShowModal, course }) => {
             setIsLoading(false);
         }
     };
+
     return (
         <Modal show={showModal} onHide={() => setShowModal(false)} centered>
             <Modal.Header closeButton>
@@ -70,38 +81,48 @@ const PurchaseModal = ({ showModal, setShowModal, course }) => {
                         ))}
                     </Card.Body>
                 </Card>
-                <Form onSubmit={handlePurchase} className="m-2">
+                <Form
+                    validated={formValidated}
+                    onSubmit={handleFormSubmit}
+                    className="m-2"
+                >
                     <Form.Group controlId="formPhone" className="m-1">
                         <Form.Label>Bkash Number</Form.Label>
                         <Form.Control
+                            required
                             type="text"
                             placeholder="Enter Your Bkash Phone Number"
                             value={phoneNumber}
                             onChange={e => setPhoneNumber(e.target.value)}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            Please enter your Bkash number.
+                        </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group controlId="formTransactionID" className="m-1">
                         <Form.Label>TransactionID</Form.Label>
                         <Form.Control
+                            required
                             type="text"
                             placeholder="Enter your Bkash TransactionID"
                             value={transactionID}
                             onChange={e => setTransactionID(e.target.value)}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            Please enter your Bkash TransactionID.
+                        </Form.Control.Feedback>
                     </Form.Group>
+                    <div className="d-flex justify-content-center my-2">
+                        <Button
+                            variant="success"
+                            type="submit"
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Loading...' : 'Purchase'}
+                        </Button>
+                    </div>
                 </Form>
-
-                <div className="d-flex justify-content-center my-2">
-                    <Button
-                        variant="success"
-                        type="submit"
-                        disabled={isLoading}
-                        onClick={handlePurchase}
-                    >
-                        {isLoading ? 'Loading…' : 'Purchase'}
-                    </Button>
-                </div>
             </Modal.Body>
         </Modal>
     );

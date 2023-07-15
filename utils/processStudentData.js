@@ -7,6 +7,7 @@ export default async function processStudentData(studnets) {
                 const eachStudentObject = {
                     id: objectID,
                     name: student.name,
+                    phone: student.phone,
                     email: student.email,
                     course_detail: [],
                     number: course.purchase_info[0].phoneNumber,
@@ -20,6 +21,8 @@ export default async function processStudentData(studnets) {
                         chapter_name: chapter.chapter_name,
                         total_class: chapter.total_class,
                         price: chapter.price,
+                        slot: course.slot,
+                        version: course.version,
                     };
                     eachStudentObject.course_detail.push(eachCourseDetail);
                 });

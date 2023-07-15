@@ -1,14 +1,14 @@
-import React, { use, useEffect, useState } from 'react';
-import { Table, Button } from 'react-bootstrap';
-import processStudentData from '../../utils/processStudentData';
+import React, { useEffect, useState } from 'react';
+import { Button, Table } from 'react-bootstrap';
 import {
-    firebaseDB,
     collection,
+    firebaseDB,
     onSnapshot,
     query,
     where,
 } from '../../lib/firebase';
 import { acceptEnrollment, removeEnrollment } from '../../utils/clientAPI';
+import processStudentData from '../../utils/processStudentData';
 
 const Dashboard = () => {
     const [students, setStudents] = useState([]);
@@ -54,8 +54,9 @@ const Dashboard = () => {
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Phone</th>
                         <th>Course Detail</th>
-                        <th>Number</th>
+                        <th>Payment Number</th>
                         <th>Transaction ID</th>
                         <th>Action</th>
                     </tr>
@@ -65,6 +66,7 @@ const Dashboard = () => {
                         <tr key={student.id} className="align-items-center">
                             <td>{student.name}</td>
                             <td>{student.email}</td>
+                            <td>{student.phone}</td>
                             <td>
                                 {student.course_detail.map(
                                     (eachCourse, index) => (
@@ -87,6 +89,14 @@ const Dashboard = () => {
                                             <li>
                                                 <b>Total Class: </b>
                                                 {eachCourse.total_class}
+                                            </li>
+                                            <li>
+                                                <b>Slot : </b>
+                                                {eachCourse.slot}
+                                            </li>
+                                            <li>
+                                                <b>Version: </b>
+                                                {eachCourse.version}
                                             </li>
                                         </ul>
                                     )

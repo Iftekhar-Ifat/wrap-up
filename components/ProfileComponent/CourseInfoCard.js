@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import CourseStatus from './CourseStatus';
 import CancelModal from './CancelModal';
+import CourseStatus from './CourseStatus';
 import PurchaseModal from './PurchaseModal';
 
 const CourseInfoCard = ({ course }) => {
@@ -47,6 +47,7 @@ const CourseInfoCard = ({ course }) => {
                             variant="danger"
                             type="submit"
                             onClick={handleCancel}
+                            disabled={course.status !== 'Enrolled'}
                         >
                             Cancel
                         </Button>
@@ -55,6 +56,7 @@ const CourseInfoCard = ({ course }) => {
                             variant="primary"
                             onClick={handleUpdate}
                             className="ms-4"
+                            disabled={course.status !== 'Enrolled'}
                         >
                             Purchase
                         </Button>

@@ -78,22 +78,24 @@ const ChapterTab = ({ program, course_type, subject }) => {
 
     return (
         <>
-            {filteredClasses.map(item => {
-                const courseTypes = item.course_type;
+            {filteredClasses
+                ? filteredClasses.map(item => {
+                      const courseTypes = item.course_type;
 
-                if (courseTypes && courseTypes[course_type]) {
-                    const chapters = courseTypes[course_type].chapters;
+                      if (courseTypes && courseTypes[course_type]) {
+                          const chapters = courseTypes[course_type].chapters;
 
-                    return chapters.map(chapter => (
-                        <ChapterComponent
-                            key={chapter.chapter_id}
-                            chapter={chapter}
-                            handleCheckboxChange={handleCheckboxChange}
-                        />
-                    ));
-                }
-                return null;
-            })}
+                          return chapters.map(chapter => (
+                              <ChapterComponent
+                                  key={chapter.chapter_id}
+                                  chapter={chapter}
+                                  handleCheckboxChange={handleCheckboxChange}
+                              />
+                          ));
+                      }
+                      return null;
+                  })
+                : null}
             <div className="d-flex justify-content-center m-4">
                 <Button variant="primary" onClick={handleEnroll}>
                     Enroll

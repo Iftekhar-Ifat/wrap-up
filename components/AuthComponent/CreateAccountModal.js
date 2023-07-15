@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Modal, Form, Button } from 'react-bootstrap';
+import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthProvider';
-import { firebaseDB, collection, addDoc } from '../../lib/firebase';
+import { addDoc, collection, firebaseDB } from '../../lib/firebase';
 
 const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
 
     const [isLoading, setIsLoading] = useState(false);
@@ -24,6 +25,7 @@ const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
                     await addDoc(usersCollection, {
                         name,
                         email,
+                        phone,
                         role,
                         enrolled_courses: [],
                     });
@@ -39,6 +41,7 @@ const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
             setName('');
             setEmail('');
             setPassword('');
+            setPhone('');
             setIsLoading(false);
         }
     };
@@ -54,7 +57,7 @@ const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
                         <Form.Label>Name</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter your name"
+                            placeholder="Enter your Name"
                             value={name}
                             onChange={e => setName(e.target.value)}
                         />
@@ -64,17 +67,25 @@ const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
                         <Form.Label>Email</Form.Label>
                         <Form.Control
                             type="email"
-                            placeholder="Enter your email"
+                            placeholder="Enter your Email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
                     </Form.Group>
-
+                    <Form.Group controlId="phoneNumber">
+                        <Form.Label>Phone</Form.Label>
+                        <Form.Control
+                            type="tel"
+                            placeholder="Enter your Phonenumber"
+                            value={phone}
+                            onChange={e => setPhone(e.target.value)}
+                        />
+                    </Form.Group>
                     <Form.Group controlId="formPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                             type="password"
-                            placeholder="Enter your password"
+                            placeholder="Enter your Password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                         />

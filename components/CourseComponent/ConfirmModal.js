@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
-import { Button, Card, Modal } from 'react-bootstrap';
 import {
-    firebaseDB,
+    Button,
+    Card,
+    Form,
+    FormCheck,
+    FormGroup,
+    FormLabel,
+    Modal,
+} from 'react-bootstrap';
+import { useAuth } from '../../context/AuthProvider';
+import {
     collection,
     doc,
+    firebaseDB,
     getDocs,
     query,
     updateDoc,
     where,
 } from '../../lib/firebase';
-
-import { useAuth } from '../../context/AuthProvider';
 
 const ConfirmModal = ({
     showModal,
@@ -19,12 +26,30 @@ const ConfirmModal = ({
     enrolledObject,
 }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const [formValidated, setFormValidated] = useState(false);
+    const [version, setVersion] = useState('');
+    const [slot, setSlot] = useState('');
 
     const currentUser = useAuth().currentUser;
+
+    const handleFormSubmit = e => {
+        e.preventDefault();
+        const form = e.currentTarget;
+
+        if (form.checkValidity() === false || !version || !slot) {
+            e.stopPropagation();
+        } else {
+            setFormValidated(true);
+            handleConfirm();
+        }
+    };
 
     const handleConfirm = async () => {
         try {
             setIsLoading(true);
+
+            enrolledObject['version'] = version;
+            enrolledObject['slot'] = slot;
 
             const usersCollection = collection(firebaseDB, 'users');
             const querySnapshot = await getDocs(
@@ -54,7 +79,6 @@ const ConfirmModal = ({
             setIsLoading(false);
         }
     };
-
     return (
         <Modal show={showModal} onHide={handleModalClose} centered>
             <Modal.Header closeButton>
@@ -90,21 +114,79 @@ const ConfirmModal = ({
                         ))}
                     </Card.Body>
                 </Card>
-                <div className="d-flex justify-content-center my-2">
-                    <Button
-                        variant="primary"
-                        type="submit"
-                        disabled={isLoading}
-                        onClick={handleConfirm}
-                    >
-                        {isLoading ? 'Loading…' : 'Confirm'}
-                    </Button>
-                </div>
-                <small>
+                <Form
+                    validated={formValidated}
+                    onSubmit={handleFormSubmit}
+                    className="m-2"
+                >
+                    <FormGroup controlId="formVersion" className="m-1">
+                        <FormLabel className="fw-bold">Version</FormLabel>
+
+                        <FormCheck
+                            type="checkbox"
+                            id="english"
+                            label="English"
+                            value="english"
+                            checked={version === 'english'}
+                            onChange={e => setVersion(e.target.value)}
+                            required={!version}
+                        />
+
+                        <FormCheck
+                            type="checkbox"
+                            id="bangla"
+                            label="Bangla"
+                            value="bangla"
+                            checked={version === 'bangla'}
+                            onChange={e => setVersion(e.target.value)}
+                            required={!version}
+                        />
+
+                        <Form.Control.Feedback type="invalid">
+                            Please select a Version.
+                        </Form.Control.Feedback>
+                    </FormGroup>
+                    <FormGroup controlId="formSlot" className="m-1">
+                        <FormLabel className="fw-bold">Slot</FormLabel>
+
+                        <FormCheck
+                            type="checkbox"
+                            id="evening(4-7)"
+                            label="Evening (4 - 7)"
+                            value="evening(4-7)"
+                            checked={slot === 'evening(4-7)'}
+                            onChange={e => setSlot(e.target.value)}
+                            required={!slot}
+                        />
+
+                        <FormCheck
+                            type="checkbox"
+                            id="night(7-10)"
+                            label="Night (7 - 10)"
+                            value="night(7-10)"
+                            checked={slot === 'night(7-10)'}
+                            onChange={e => setSlot(e.target.value)}
+                            required={!slot}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            Please select a Slot.
+                        </Form.Control.Feedback>
+                    </FormGroup>
+                    <div className="d-flex justify-content-center my-2">
+                        <Button
+                            variant="success"
+                            type="submit"
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Loading...' : 'Purchase'}
+                        </Button>
+                    </div>
+                </Form>
+                <div className="d-flex justify-content-center text-danger">
                     <i>
                         After confirming, go to your profile to proceed further.
                     </i>
-                </small>
+                </div>
             </Modal.Body>
         </Modal>
     );
