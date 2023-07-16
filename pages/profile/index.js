@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../context/AuthProvider';
-import styles from '../../styles/ProfilePage/Profile.module.css';
+import { BsInfoCircleFill } from 'react-icons/bs';
+import VerificationAlert from '../../components/AuthComponent/VerificationAlert';
 import CourseInfoCard from '../../components/ProfileComponent/CourseInfoCard';
+import Dashboard from '../../components/ProfileComponent/Dashboard';
+import StatusInfoModal from '../../components/ProfileComponent/StatusInfoModal';
+import { useAuth } from '../../context/AuthProvider';
 import {
-    firebaseDB,
     collection,
+    firebaseDB,
+    onSnapshot,
     query,
     where,
-    onSnapshot,
 } from '../../lib/firebase';
-import { BsInfoCircleFill } from 'react-icons/bs';
-import StatusInfoModal from '../../components/ProfileComponent/StatusInfoModal';
-import Dashboard from '../../components/ProfileComponent/Dashboard';
+import styles from '../../styles/ProfilePage/Profile.module.css';
 
 const Profile = () => {
     const currentUser = useAuth().currentUser;
@@ -64,9 +65,17 @@ const Profile = () => {
                               </div>
                           ))
                         : null}
+                    {currentUser.emailVerified === false ? (
+                        <VerificationAlert />
+                    ) : null}
                 </div>
             ) : (
-                <Dashboard />
+                <>
+                    <Dashboard />
+                    {currentUser.emailVerified === false ? (
+                        <VerificationAlert />
+                    ) : null}
+                </>
             )}
             {showStatusInfoModal ? (
                 <StatusInfoModal

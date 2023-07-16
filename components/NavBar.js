@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import Link from 'next/link';
 import Image from 'next/image';
-import { FaChalkboardTeacher, FaUserAlt } from 'react-icons/fa';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillChatLeftDotsFill } from 'react-icons/bs';
+import { FaChalkboardTeacher, FaUserAlt } from 'react-icons/fa';
 import { useAuth } from '../context/AuthProvider';
 import CreateAccountModal from './AuthComponent/CreateAccountModal';
+import ForgotPasswordModal from './AuthComponent/ForgotPasswordModal';
 import SignInModal from './AuthComponent/SignInModal';
-import { useRouter } from 'next/router';
 
 const NavBar = () => {
     const auth = useAuth();
@@ -18,6 +19,7 @@ const NavBar = () => {
 
     const [showCAModal, setShowCAModal] = useState(false);
     const [showSignInModal, setShowSignInModal] = useState(false);
+    const [showFPModal, setShowFPModal] = useState(false);
 
     const handleCAModalClose = () => {
         setShowCAModal(false);
@@ -25,6 +27,10 @@ const NavBar = () => {
     const handleSignInModalClose = () => {
         setShowSignInModal(false);
     };
+    const handleFPModalClose = () => {
+        setShowFPModal(false);
+    };
+
     const handleLogout = () => {
         try {
             logOut(auth)
@@ -156,6 +162,14 @@ const NavBar = () => {
                     handleModalClose={handleSignInModalClose}
                     setShowModal={setShowSignInModal}
                     setShowCAModal={setShowCAModal}
+                    setShowFPModal={setShowFPModal}
+                />
+            ) : null}
+            {showFPModal ? (
+                <ForgotPasswordModal
+                    showModal={showFPModal}
+                    handleModalClose={handleFPModalClose}
+                    setShowModal={setShowFPModal}
                 />
             ) : null}
         </>

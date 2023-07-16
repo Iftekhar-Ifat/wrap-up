@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Form, Button } from 'react-bootstrap';
+import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthProvider';
 
 const SignInModal = ({
@@ -7,6 +7,7 @@ const SignInModal = ({
     handleModalClose,
     setShowModal,
     setShowCAModal,
+    setShowFPModal,
 }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -48,6 +49,7 @@ const SignInModal = ({
                     <Form.Group controlId="formEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control
+                            required
                             type="email"
                             placeholder="Enter your email"
                             value={email}
@@ -58,12 +60,24 @@ const SignInModal = ({
                     <Form.Group controlId="formPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
+                            required
                             type="password"
                             placeholder="Enter your password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
                     </Form.Group>
+                    <div className="d-flex mt-2 justify-content-end">
+                        <span
+                            style={{ color: 'blue', cursor: 'pointer' }}
+                            onClick={() => {
+                                setShowModal(false);
+                                setShowFPModal(true);
+                            }}
+                        >
+                            Forgot password?
+                        </span>
+                    </div>
                     <div className="d-flex justify-content-center my-2">
                         <Button
                             variant="primary"

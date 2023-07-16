@@ -1,12 +1,13 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
-import { auth } from '../lib/firebase';
 import {
+    createUserWithEmailAndPassword,
+    sendEmailVerification,
     sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signOut,
-    createUserWithEmailAndPassword,
     updateProfile,
 } from 'firebase/auth';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from '../lib/firebase';
 
 const AuthContext = createContext();
 
@@ -28,6 +29,7 @@ const AuthProvider = ({ children }) => {
             await updateProfile(user, {
                 displayName: username,
             });
+            await sendEmailVerification(user);
             return user;
         } catch (error) {
             alert(error.message);
@@ -43,7 +45,7 @@ const AuthProvider = ({ children }) => {
     }
 
     async function resetPassword(email) {
-        return await sendPasswordResetEmail(email);
+        return await sendPasswordResetEmail(auth, email);
     }
 
     useEffect(() => {

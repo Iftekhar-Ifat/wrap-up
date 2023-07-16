@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button } from 'react-bootstrap';
-import hsc_classes from '../../public/data/hsc_courses.json';
+import { useAuth } from '../../context/AuthProvider';
 import ssc_classes from '../../public/data/haha.json';
+import hsc_classes from '../../public/data/hsc_courses.json';
+import { generateUniqueKey } from '../../utils/random_key';
+import VerificationAlert from '../AuthComponent/VerificationAlert';
 import ChapterComponent from './ChapterComponent';
 import ConfirmModal from './ConfirmModal';
-import { generateUniqueKey } from '../../utils/random_key';
-import { useAuth } from '../../context/AuthProvider';
 
 const ChapterTab = ({ program, course_type, subject }) => {
     const currentUser = useAuth().currentUser;
@@ -13,6 +14,7 @@ const ChapterTab = ({ program, course_type, subject }) => {
     const [error, setError] = useState();
     const [showEnrollModal, setShowEnrollModal] = useState(false);
     const [enrolledObject, setEnrolledObject] = useState({});
+    const [showVerificationAlert, setShowVerificationAlert] = useState(false);
 
     const handleEnrollModalClose = () => {
         setShowEnrollModal(false);
@@ -52,7 +54,9 @@ const ChapterTab = ({ program, course_type, subject }) => {
         // Handle the enroll button click
 
         if (!currentUser) {
-            alert('You need to Sign In to enroll the courses');
+            setError('You need to Sign In to enroll the courses');
+        } else if (!currentUser.emailVerified) {
+            setShowVerificationAlert(true);
         } else {
             const randomKey = generateUniqueKey(5);
             const selectedItems = {
@@ -110,6 +114,9 @@ const ChapterTab = ({ program, course_type, subject }) => {
                     {error}
                 </Alert>
             ) : null}
+
+            {showVerificationAlert ? <VerificationAlert /> : null}
+
             {showEnrollModal ? (
                 <ConfirmModal
                     showModal={showEnrollModal}
