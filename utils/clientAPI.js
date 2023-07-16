@@ -1,13 +1,13 @@
+import axios from 'axios';
 import {
-    firebaseDB,
     collection,
+    doc,
+    firebaseDB,
+    getDoc,
     getDocs,
     query,
-    where,
     updateDoc,
-    getDoc,
-    doc,
-    arrayRemove,
+    where,
 } from '../lib/firebase';
 
 const getCurrentUser = async currentUserEmail => {
@@ -191,11 +191,37 @@ const acceptEnrollment = async (userEmail, courseKey) => {
     }
 };
 
+async function getHSCcourses() {
+    const HSCcoursesAPI =
+        'https://raw.githubusercontent.com/wrap-up/wrap-up-data/main/hsc_courses.json';
+    try {
+        const result = await axios.get(HSCcoursesAPI);
+        return result.data;
+    } catch (error) {
+        console.error('Error:', error.message);
+        throw error;
+    }
+}
+
+async function getSSCcourses() {
+    const SSCcoursesAPI =
+        'https://raw.githubusercontent.com/wrap-up/wrap-up-data/main/hsc_courses.json';
+    try {
+        const result = await axios.get(SSCcoursesAPI);
+        return result.data;
+    } catch (error) {
+        console.error('Error:', error.message);
+        throw error;
+    }
+}
+
 export {
-    getCurrentUser,
-    deleteCourse,
-    purchaseCourse,
-    getAllStudents,
-    removeEnrollment,
     acceptEnrollment,
+    deleteCourse,
+    getAllStudents,
+    getCurrentUser,
+    getHSCcourses,
+    getSSCcourses,
+    purchaseCourse,
+    removeEnrollment,
 };

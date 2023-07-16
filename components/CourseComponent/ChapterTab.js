@@ -1,8 +1,8 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
-import { Alert, Button } from 'react-bootstrap';
+import { Alert, Button, Spinner } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthProvider';
-import ssc_classes from '../../public/data/haha.json';
-import hsc_classes from '../../public/data/hsc_courses.json';
+import { getHSCcourses, getSSCcourses } from '../../utils/clientAPI';
 import { generateUniqueKey } from '../../utils/random_key';
 import VerificationAlert from '../AuthComponent/VerificationAlert';
 import ChapterComponent from './ChapterComponent';
@@ -15,18 +15,25 @@ const ChapterTab = ({ program, course_type, subject }) => {
     const [showEnrollModal, setShowEnrollModal] = useState(false);
     const [enrolledObject, setEnrolledObject] = useState({});
     const [showVerificationAlert, setShowVerificationAlert] = useState(false);
+    const [filteredClasses, setFilteredClasses] = useState();
 
     const handleEnrollModalClose = () => {
         setShowEnrollModal(false);
     };
 
-    let filteredClasses;
+    const hsc_classes = useQuery({
+        queryKey: ['hsc-classes'],
+        queryFn: getHSCcourses,
+        cacheTime: Infinity,
+        staleTime: Infinity,
+    });
 
-    if (program === 'hsc') {
-        filteredClasses = hsc_classes.filter(item => item.subject === subject);
-    } else if (program === 'ssc') {
-        filteredClasses = ssc_classes.filter(item => item.subject === subject);
-    }
+    const ssc_classes = useQuery({
+        queryKey: ['ssc-classes'],
+        queryFn: getSSCcourses,
+        cacheTime: Infinity,
+        staleTime: Infinity,
+    });
 
     const handleCheckboxChange = chapter => {
         setSelectedChapters(prevSelectedChapters => {
@@ -51,8 +58,6 @@ const ChapterTab = ({ program, course_type, subject }) => {
     };
 
     const handleEnroll = async () => {
-        // Handle the enroll button click
-
         if (!currentUser) {
             setError('You need to Sign In to enroll the courses');
         } else if (!currentUser.emailVerified) {
@@ -80,6 +85,35 @@ const ChapterTab = ({ program, course_type, subject }) => {
         setSelectedChapters([]);
     }, [program, course_type, subject]);
 
+    useEffect(() => {
+        const processClassesData = hsc_classes.data?.filter(
+            item => item.subject === subject
+        );
+        setFilteredClasses(processClassesData);
+    }, [hsc_classes.data, subject]);
+
+    useEffect(() => {
+        const processClassesData = ssc_classes.data?.filter(
+            item => item.subject === subject
+        );
+        setFilteredClasses(processClassesData);
+    }, [ssc_classes.data, subject]);
+
+    if (hsc_classes.isLoading) {
+        return (
+            <div className="d-flex justify-content-center">
+                <Spinner animation="border" />
+            </div>
+        );
+    }
+    if (ssc_classes.isLoading) {
+        return (
+            <div className="d-flex justify-content-center">
+                <Spinner animation="border" />
+            </div>
+        );
+    }
+
     return (
         <>
             {filteredClasses
@@ -100,6 +134,7 @@ const ChapterTab = ({ program, course_type, subject }) => {
                       return null;
                   })
                 : null}
+
             <div className="d-flex justify-content-center m-4">
                 <Button variant="primary" onClick={handleEnroll}>
                     Enroll
