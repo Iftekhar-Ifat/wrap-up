@@ -16,6 +16,7 @@ import styles from '../../styles/ProfilePage/Profile.module.css';
 
 const Profile = () => {
     const currentUser = useAuth().currentUser;
+    console.log(currentUser);
     const [enrolledCourses, setEnrolledCourses] = useState(null);
     const [currentUserRole, setCurrentUserRole] = useState();
 
@@ -69,14 +70,14 @@ const Profile = () => {
                         <VerificationAlert />
                     ) : null}
                 </div>
-            ) : (
+            ) : currentUserRole === 'admin' ? (
                 <>
                     <Dashboard />
                     {currentUser.emailVerified === false ? (
                         <VerificationAlert />
                     ) : null}
                 </>
-            )}
+            ) : null}
             {showStatusInfoModal ? (
                 <StatusInfoModal
                     showModal={showStatusInfoModal}
