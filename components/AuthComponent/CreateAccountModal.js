@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthProvider';
-import { addDoc, collection } from '../../lib/firebase';
+import { addDoc, collection, firebaseDB } from '../../lib/firebase';
 
 const CreateAccountModal = ({ showModal, handleModalClose, setShowModal }) => {
     const route = useRouter();

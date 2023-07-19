@@ -23,7 +23,6 @@ const SignInModal = ({
             setIsLoading(true);
             await login(email, password)
                 .then(() => {
-                    console.log('user logged in');
                     setShowModal(false);
                 })
                 .catch(error => {
