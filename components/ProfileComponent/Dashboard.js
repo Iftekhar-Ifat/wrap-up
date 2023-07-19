@@ -106,14 +106,28 @@ const Dashboard = () => {
                             <td>{student.transactionId}</td>
                             <td>
                                 {student.status === 'Completed' ? (
-                                    <Button
-                                        variant="success"
-                                        disabled
-                                        className="m-1"
-                                        onClick={() => handleRemove(student)}
-                                    >
-                                        Completed
-                                    </Button>
+                                    <>
+                                        <Button
+                                            variant="success"
+                                            disabled
+                                            className="m-1"
+                                            onClick={() =>
+                                                handleRemove(student)
+                                            }
+                                        >
+                                            Completed
+                                        </Button>
+                                        <Button
+                                            variant="danger"
+                                            className="m-1"
+                                            disabled={isLoading}
+                                            onClick={() =>
+                                                handleRemove(student)
+                                            }
+                                        >
+                                            {isLoading ? 'Loading…' : 'Remove'}
+                                        </Button>
+                                    </>
                                 ) : (
                                     <>
                                         <Button
