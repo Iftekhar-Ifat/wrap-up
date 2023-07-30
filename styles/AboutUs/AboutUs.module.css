@@ -1,0 +1,6 @@
+.about_wrapper {
+    border-left: 8px solid;
+    border-image: linear-gradient(rgb(72, 72, 150), rgb(184, 184, 245));
+    border-image-slice: 1;
+    padding-left: 10px;
+}

@@ -18,5 +18,10 @@
         "id": 4,
         "title": "ICT",
         "key": "ict"
+    },
+    {
+        "id": 5,
+        "title": "Biology",
+        "key": "biology"
     }
 ]

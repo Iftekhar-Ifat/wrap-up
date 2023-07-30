@@ -18,5 +18,10 @@
         "id": 4,
         "title": "Higher Math",
         "key": "higher_math"
+    },
+    {
+        "id": 5,
+        "title": "Biology",
+        "key": "biology"
     }
 ]

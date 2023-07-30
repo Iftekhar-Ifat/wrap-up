@@ -9,7 +9,7 @@ const FAQ = props => {
             <Accordion>
                 <Accordion.Item eventKey={id}>
                     <Accordion.Header>
-                        <FontAwesomeIcon className="mx-2" icon={faPlayCircle} />
+                        {/* <FontAwesomeIcon className="mx-2" icon={faPlayCircle} /> */}
                         <span className="fs-5">{ques}</span>
                     </Accordion.Header>
                     <Accordion.Body>

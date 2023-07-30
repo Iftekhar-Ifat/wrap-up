@@ -11,6 +11,7 @@ const Teachers = props => {
                     <Image
                         className="p-1"
                         src={img}
+                        style={{ borderRadius: '100px' }}
                         alt=""
                         width="210"
                         height="210"

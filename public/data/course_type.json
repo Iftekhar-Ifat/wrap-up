@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Regular",
+        "title": "Regular 1v1",
         "key": "regular"
     },
     {
@@ -16,7 +16,7 @@
     },
     {
         "id": 4,
-        "title": "Test Paper Solve",
+        "title": "Test Paper Solve 1v1",
         "key": "test_paper_solve"
     }
 ]
