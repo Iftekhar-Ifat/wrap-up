@@ -205,7 +205,7 @@ async function getHSCcourses() {
 
 async function getSSCcourses() {
     const SSCcoursesAPI =
-        'https://raw.githubusercontent.com/wrap-up/wrap-up-data/main/hsc_courses.json';
+        'https://raw.githubusercontent.com/wrap-up/wrap-up-data/main/ssc_courses.json';
     try {
         const result = await axios.get(SSCcoursesAPI);
         return result.data;

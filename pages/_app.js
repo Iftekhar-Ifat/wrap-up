@@ -24,16 +24,28 @@ function MyApp({ Component, pageProps }) {
             </Head>
             <AuthProvider>
                 {publicRoute.includes(router.pathname) ? (
-                    <>
-                        <NavBar />
-                        <Component {...pageProps} />
+                    <div
+                        className="d-flex flex-column justify-content-between"
+                        style={{ height: '100vh' }}
+                    >
+                        <div>
+                            <NavBar />
+                            <Component {...pageProps} />
+                        </div>
                         <Footer />
-                    </>
+                    </div>
                 ) : (
                     <ProtectedRoute>
-                        <NavBar />
-                        <Component {...pageProps} />
-                        <Footer />
+                        <div
+                            className="d-flex flex-column justify-content-between"
+                            style={{ height: '100vh' }}
+                        >
+                            <div>
+                                <NavBar />
+                                <Component {...pageProps} />
+                            </div>
+                            <Footer />
+                        </div>
                     </ProtectedRoute>
                 )}
             </AuthProvider>

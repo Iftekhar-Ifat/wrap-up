@@ -10,8 +10,8 @@ const IntroSection = () => {
                 <Row>
                     <Col lg="6" xs="12">
                         <h1 className={`text-white fw-bold ${styles.h1_tag}`}>
-                            Look out, there is a chance, a dazzling chance
-                            Already here! Then give a glance.
+                            দেশের প্রথম SSC ও HSC এর প্রত্যেক বিষয়ের
+                            চাপ্টারভিত্তিক LIVE CLASS!
                         </h1>
                     </Col>
                     <Col lg="6" xs="12">

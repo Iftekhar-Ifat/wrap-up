@@ -10,7 +10,13 @@ const Courses = () => {
     };
 
     return (
-        <div style={{ minHeight: '60vh' }}>
+        <div
+            style={
+                {
+                    // minHeight: '70vh'
+                }
+            }
+        >
             <div className="container mx-auto mt-5 detail-container">
                 <h1 className="text-center my-4">Available Subjects</h1>
                 <div className="mb-3 p-2 border d-flex justify-content-around">

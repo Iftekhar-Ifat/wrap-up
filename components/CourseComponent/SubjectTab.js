@@ -11,7 +11,53 @@ const SubjectTab = ({ program, course_type }) => {
     };
     return (
         <div>
-            <div className="mb-3 p-2 border d-flex justify-content-around">
+            <div className="mb-3 p-2 border">
+                <div className="row justify-content-around">
+                    {program === 'ssc'
+                        ? subjects_ssc.map(subject => (
+                              <div
+                                  key={subject.id}
+                                  className="col-6 col-sm-4 col-md-3 col-lg-2 mb-2"
+                              >
+                                  <Button
+                                      variant={`${
+                                          selectedSubject === subject.key
+                                              ? 'primary'
+                                              : 'outline-primary'
+                                      }`}
+                                      className="w-100"
+                                      onClick={() =>
+                                          handleSubjectChange(subject.key)
+                                      }
+                                  >
+                                      {subject.title}
+                                  </Button>
+                              </div>
+                          ))
+                        : subjects_hsc.map(subject => (
+                              <div
+                                  key={subject.id}
+                                  className="col-6 col-sm-4 col-md-3 col-lg-2 mb-2"
+                              >
+                                  <Button
+                                      variant={`${
+                                          selectedSubject === subject.key
+                                              ? 'primary'
+                                              : 'outline-primary'
+                                      }`}
+                                      className="w-100"
+                                      onClick={() =>
+                                          handleSubjectChange(subject.key)
+                                      }
+                                  >
+                                      {subject.title}
+                                  </Button>
+                              </div>
+                          ))}
+                </div>
+            </div>
+
+            {/* <div className="mb-3 p-2 border d-flex justify-content-around h-auto">
                 {program === 'ssc'
                     ? subjects_ssc.map(subject => (
                           <Button
@@ -41,7 +87,7 @@ const SubjectTab = ({ program, course_type }) => {
                               {subject.title}
                           </Button>
                       ))}
-            </div>
+            </div> */}
             {selectedSubject ? (
                 <ChapterTab
                     program={program}
