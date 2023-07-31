@@ -7,6 +7,10 @@ import NavBar from '../components/NavBar';
 import ProtectedRoute from '../components/ProtectedRoute';
 import AuthProvider from '../context/AuthProvider';
 import '../styles/globals.css';
+import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
+import { Analytics } from '@vercel/analytics/react';
 
 const publicRoute = ['/', '/about-us', '/courses'];
 const queryClient = new QueryClient();
@@ -15,6 +19,9 @@ function MyApp({ Component, pageProps }) {
     const router = useRouter();
     return (
         <QueryClientProvider client={queryClient}>
+            <Head>
+                <link rel="shortcut icon" href="/logo2.svg" />
+            </Head>
             <AuthProvider>
                 {publicRoute.includes(router.pathname) ? (
                     <>
@@ -30,6 +37,8 @@ function MyApp({ Component, pageProps }) {
                     </ProtectedRoute>
                 )}
             </AuthProvider>
+            <DefaultSeo {...SEO} />
+            <Analytics />
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     );
