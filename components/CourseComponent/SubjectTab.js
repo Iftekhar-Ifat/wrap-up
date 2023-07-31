@@ -57,37 +57,6 @@ const SubjectTab = ({ program, course_type }) => {
                 </div>
             </div>
 
-            {/* <div className="mb-3 p-2 border d-flex justify-content-around h-auto">
-                {program === 'ssc'
-                    ? subjects_ssc.map(subject => (
-                          <Button
-                              key={subject.id}
-                              variant={`${
-                                  selectedSubject === subject.key
-                                      ? 'primary'
-                                      : 'outline-primary'
-                              }`}
-                              className="w-50 me-2"
-                              onClick={() => handleSubjectChange(subject.key)}
-                          >
-                              {subject.title}
-                          </Button>
-                      ))
-                    : subjects_hsc.map(subject => (
-                          <Button
-                              key={subject.id}
-                              variant={`${
-                                  selectedSubject === subject.key
-                                      ? 'primary'
-                                      : 'outline-primary'
-                              }`}
-                              className="w-50 me-2"
-                              onClick={() => handleSubjectChange(subject.key)}
-                          >
-                              {subject.title}
-                          </Button>
-                      ))}
-            </div> */}
             {selectedSubject ? (
                 <ChapterTab
                     program={program}

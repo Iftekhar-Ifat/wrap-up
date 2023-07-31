@@ -15,7 +15,8 @@ const ChapterTab = ({ program, course_type, subject }) => {
     const [showEnrollModal, setShowEnrollModal] = useState(false);
     const [enrolledObject, setEnrolledObject] = useState({});
     const [showVerificationAlert, setShowVerificationAlert] = useState(false);
-    const [filteredClasses, setFilteredClasses] = useState();
+    const [filteredHSCClasses, setFilteredHSCClasses] = useState();
+    const [filteredSSCClasses, setFilteredSSCClasses] = useState();
 
     const handleEnrollModalClose = () => {
         setShowEnrollModal(false);
@@ -83,30 +84,23 @@ const ChapterTab = ({ program, course_type, subject }) => {
 
     useEffect(() => {
         setSelectedChapters([]);
-    }, [program, course_type, subject]);
+    }, [program, subject]);
 
     useEffect(() => {
         const processClassesData = hsc_classes.data?.filter(
             item => item.subject === subject
         );
-        setFilteredClasses(processClassesData);
+        setFilteredHSCClasses(processClassesData);
     }, [hsc_classes.data, subject]);
 
     useEffect(() => {
         const processClassesData = ssc_classes.data?.filter(
             item => item.subject === subject
         );
-        setFilteredClasses(processClassesData);
+        setFilteredSSCClasses(processClassesData);
     }, [ssc_classes.data, subject]);
 
-    if (hsc_classes.isLoading) {
-        return (
-            <div className="d-flex justify-content-center">
-                <Spinner animation="border" />
-            </div>
-        );
-    }
-    if (ssc_classes.isLoading) {
+    if (hsc_classes.isLoading || ssc_classes.isLoading) {
         return (
             <div className="d-flex justify-content-center">
                 <Spinner animation="border" />
@@ -116,8 +110,25 @@ const ChapterTab = ({ program, course_type, subject }) => {
 
     return (
         <>
-            {filteredClasses
-                ? filteredClasses.map(item => {
+            {filteredHSCClasses && program === 'hsc'
+                ? filteredHSCClasses.map(item => {
+                      const courseTypes = item.course_type;
+
+                      if (courseTypes && courseTypes[course_type]) {
+                          const chapters = courseTypes[course_type].chapters;
+
+                          return chapters.map(chapter => (
+                              <ChapterComponent
+                                  key={chapter.chapter_id}
+                                  chapter={chapter}
+                                  handleCheckboxChange={handleCheckboxChange}
+                              />
+                          ));
+                      }
+                      return null;
+                  })
+                : filteredSSCClasses && program === 'ssc'
+                ? filteredSSCClasses.map(item => {
                       const courseTypes = item.course_type;
 
                       if (courseTypes && courseTypes[course_type]) {
