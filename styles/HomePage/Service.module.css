@@ -13,6 +13,10 @@
     min-height: 270px;
 }
 
+.card_body:hover {
+    transform: scale(1.01);
+}
+
 .wrapper {
     background-color: #ededff;
 }

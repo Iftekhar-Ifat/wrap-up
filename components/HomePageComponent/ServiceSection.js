@@ -24,6 +24,10 @@ const ServiceSection = () => {
                             <Col lg="6" xs="12" className="h-100">
                                 <div
                                     className={`${styles.card_body} card p-4 m-3`}
+                                    style={{
+                                        border: 'none',
+                                        boxShadow: '#c6c6c6 5px 5px 10px',
+                                    }}
                                 >
                                     <div>
                                         <Image
@@ -52,6 +56,10 @@ const ServiceSection = () => {
                             <Col lg="6" xs="12" className="h-100">
                                 <div
                                     className={`${styles.card_body} card p-4 m-3`}
+                                    style={{
+                                        border: 'none',
+                                        boxShadow: '#c6c6c6 5px 5px 10px',
+                                    }}
                                 >
                                     <div>
                                         <Image
@@ -81,6 +89,10 @@ const ServiceSection = () => {
                             <Col lg="6" xs="12" className="h-100">
                                 <div
                                     className={`${styles.card_body} card p-4 m-3`}
+                                    style={{
+                                        border: 'none',
+                                        boxShadow: '#c6c6c6 5px 5px 10px',
+                                    }}
                                 >
                                     <div>
                                         <Image
@@ -109,6 +121,10 @@ const ServiceSection = () => {
                             <Col lg="6" xs="12" className="h-100">
                                 <div
                                     className={`${styles.card_body} card p-4 m-3`}
+                                    style={{
+                                        border: 'none',
+                                        boxShadow: '#c6c6c6 5px 5px 10px',
+                                    }}
                                 >
                                     <div>
                                         <Image
