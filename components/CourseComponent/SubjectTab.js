@@ -11,7 +11,7 @@ const SubjectTab = ({ program, course_type }) => {
     };
     return (
         <div>
-            <div className="mb-3 p-2 border">
+            <div className="mb-3 p-2 border rounded">
                 <div className="row justify-content-around">
                     {program === 'ssc'
                         ? subjects_ssc.map(subject => (

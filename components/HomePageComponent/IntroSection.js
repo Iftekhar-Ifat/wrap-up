@@ -11,7 +11,7 @@ const IntroSection = () => {
                     <Col lg="6" xs="12">
                         <h1 className={`text-white fw-bold ${styles.h1_tag}`}>
                             দেশের প্রথম SSC ও HSC এর প্রত্যেক বিষয়ের
-                            চাপ্টারভিত্তিক LIVE CLASS!
+                            চাপ্টারভিত্তিক LIVE ONLINE CLASS!
                         </h1>
                     </Col>
                     <Col lg="6" xs="12">
@@ -25,47 +25,7 @@ const IntroSection = () => {
                     </Col>
                 </Row>
             </div>
-            <div className="container my-5 text-white">
-                {/* <Row>
-                    <Col className="p-2" lg="4" xs="6">
-                        <div>
-                            <h4 className="fs-4 fw-bold">Regular Class</h4>
-                            <p className="offers">
-                                All the live classes will be conducted <br />{' '}
-                                through Zoom and Google Meet.
-                            </p>
-                        </div>
-                    </Col>
-                    <Col className="p-2" lg="4" xs="6">
-                        <div>
-                            <h4 className="fs-4 fw-bold">Regular 1v3 Class</h4>
-                            <p className="offers">
-                                We are providing very short term courses. The
-                                program is designed to cover only one <br />{' '}
-                                chapter in one course.
-                            </p>
-                        </div>
-                    </Col>
-                    <Col className="p-2" lg="4" xs="6">
-                        <div>
-                            <h4 className="fs-4 fw-bold">Regular 1v3 Group</h4>
-                            <p className="offers">
-                                Enroll there and settle all your confusion
-                                regarding any topic.
-                            </p>
-                        </div>
-                    </Col>
-                    <Col className="p-2" lg="4" xs="6">
-                        <div>
-                            <h4 className="fs-4 fw-bold">Test Paper Solving</h4>
-                            <p className="offers">
-                                Enroll there and settle all your confusion
-                                regarding any topic.
-                            </p>
-                        </div>
-                    </Col>
-                </Row> */}
-            </div>
+            <div className="container my-5 text-white"></div>
         </div>
     );
 };

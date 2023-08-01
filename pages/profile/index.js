@@ -13,11 +13,11 @@ import {
     where,
 } from '../../lib/firebase';
 import styles from '../../styles/ProfilePage/Profile.module.css';
+import Image from 'next/image';
 
 const Profile = () => {
     const currentUser = useAuth().currentUser;
-    console.log(currentUser);
-    const [enrolledCourses, setEnrolledCourses] = useState(null);
+    const [enrolledCourses, setEnrolledCourses] = useState();
     const [currentUserRole, setCurrentUserRole] = useState();
 
     const [showStatusInfoModal, setShowStatusInfoModal] = useState(false);
@@ -46,26 +46,55 @@ const Profile = () => {
 
     return (
         <div className={styles.profile_wrapper}>
-            <h1 className="d-flex justify-content-center">
+            <h1 className="d-flex fw-bold justify-content-center">
                 {currentUser.displayName}
             </h1>
             {currentUserRole === 'student' ? (
-                <div className="m-4">
-                    <div className="d-flex justify-content-between align-items-center">
-                        <h2>Purchased Courses:</h2>
-                        <BsInfoCircleFill
-                            size="30px"
-                            style={{ cursor: 'pointer' }}
-                            onClick={() => setShowStatusInfoModal(true)}
-                        />
+                <div>
+                    <div
+                        className={`${styles.card_wrapper} d-flex justify-content-between align-items-center border rounded p-2`}
+                    >
+                        <h2 className="fw-bold">Purchased Courses:</h2>
+                        <div className="align-items-center">
+                            <Image
+                                src="/assets/bkash-logo.png"
+                                alt="intro-hero"
+                                width={30}
+                                height={30}
+                            />
+                            <b className="me-3 ms-1">
+                                01758255514 (Send Money)
+                            </b>
+
+                            <BsInfoCircleFill
+                                size="30px"
+                                style={{ cursor: 'pointer' }}
+                                onClick={() => setShowStatusInfoModal(true)}
+                            />
+                        </div>
                     </div>
-                    {enrolledCourses
-                        ? enrolledCourses.map(course => (
-                              <div key={course.key}>
-                                  <CourseInfoCard course={course} />
-                              </div>
-                          ))
-                        : null}
+                    {enrolledCourses?.length ? (
+                        enrolledCourses.map(course => (
+                            <div key={course.key}>
+                                <CourseInfoCard course={course} />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="d-flex flex-column align-items-center my-4">
+                            <div className="d-flex justify-content-center">
+                                <Image
+                                    className="rounded img-fluid"
+                                    src="/assets/empty_cart.svg"
+                                    alt="intro-hero"
+                                    width={500}
+                                    height={500}
+                                />
+                            </div>
+                            <h2 className="mt-4 fw-bold">
+                                No course purchased yet!
+                            </h2>
+                        </div>
+                    )}
                     {currentUser.emailVerified === false ? (
                         <VerificationAlert />
                     ) : null}

@@ -12,8 +12,8 @@ const Courses = () => {
     return (
         <div>
             <div className="container mx-auto mt-5 detail-container">
-                <h1 className="text-center my-4">Available Subjects</h1>
-                <div className="mb-3 p-2 border d-flex justify-content-around">
+                <h1 className="text-center fw-bold my-4">Available Courses</h1>
+                <div className="mb-3 p-2 border rounded d-flex justify-content-around">
                     <Button
                         variant={`${
                             selectedProgram === 'ssc'

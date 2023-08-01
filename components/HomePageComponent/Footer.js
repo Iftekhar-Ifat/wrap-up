@@ -8,10 +8,7 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 
 const Footer = () => {
     return (
-        <div
-            className={`${styles.footer_container} mt-5`}
-            // style={{ position: 'sticky', bottom: 0 }}
-        >
+        <div className={`${styles.footer_container} px-2 mt-5`}>
             <div className={styles.footer_style}>
                 <div className={`${styles.footer_links}`}>
                     <div className="text-white m-1 pt-2">
@@ -29,24 +26,42 @@ const Footer = () => {
                             <Image
                                 alt="facebook-icon"
                                 src={FacebookIcon}
-                                width="40"
+                                width="30"
                             />
                         </Link>
                     </div>
                 </div>
-                <div className="position-fixed fixed-bottom d-flex justify-content-end">
-                    <Link href="https://m.me/wrapupschool">
-                        <Image
-                            alt="messenger-icon"
-                            src={MessengerIcon}
-                            width="50"
-                        />
+                <small className="d-flex justify-content-center text-white mt-1 pb-1">
+                    © 2023 WrapUpSchool | All Rights Reserved | Developed by
+                    <Link
+                        className="ms-1"
+                        href="https://iftekhar.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Iftekhar
                     </Link>
-                </div>
+                </small>
             </div>
-            <small className="d-flex justify-content-center text-white mt-1 pb-1">
-                © 2023 WrapUpSchool | All Rights Reserved
-            </small>
+            <div
+                className="position-fixed fixed-bottom d-flex justify-content-end"
+                style={{
+                    width: 'fitContent',
+                    left: 'auto',
+                }}
+            >
+                <Link
+                    href="https://m.me/wrapupschool"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Image
+                        alt="messenger-icon"
+                        src={MessengerIcon}
+                        width="40"
+                    />
+                </Link>
+            </div>
         </div>
     );
 };

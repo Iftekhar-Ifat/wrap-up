@@ -9,6 +9,14 @@
     box-shadow: rgba(82, 84, 87, 0.2) 0px 8px 24px;
 }
 
+.card_body {
+    min-height: 270px;
+}
+
+.wrapper {
+    background-color: #ededff;
+}
+
 .homee {
     width: 50%;
     background-color: #ededff;

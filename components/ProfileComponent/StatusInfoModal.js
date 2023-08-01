@@ -10,7 +10,7 @@ const StatusInfoModal = ({ showModal, setShowModal }) => {
             </Modal.Header>
             <Modal.Body>
                 <div className="d-flex justify-content-start align-items-center m-2">
-                    <div className="w-25">
+                    <div className="w-25 d-flex">
                         <Badge bg="secondary">Enrolled</Badge>
                         <BsArrowRightShort size="25px" />
                     </div>
@@ -19,7 +19,7 @@ const StatusInfoModal = ({ showModal, setShowModal }) => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-start align-items-center m-2">
-                    <div className="w-25">
+                    <div className="w-25 d-flex">
                         <Badge bg="warning" text="dark">
                             In Progress
                         </Badge>
@@ -30,7 +30,7 @@ const StatusInfoModal = ({ showModal, setShowModal }) => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-start align-items-center m-2">
-                    <div className="w-25">
+                    <div className="w-25 d-flex">
                         <Badge bg="success">Completed</Badge>
                         <BsArrowRightShort size="25px" />
                     </div>
