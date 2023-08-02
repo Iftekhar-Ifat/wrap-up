@@ -159,9 +159,9 @@ const ServiceSection = () => {
                     Start your learning <br />
                     journey today!
                 </h3>
-                <div className="row">
+                <div className="row align-items-center">
                     <div className="col-md-6">
-                        <p className="lead" style={{ textAlign: 'justify' }}>
+                        <p style={{ textAlign: 'justify' }}>
                             Our program offers short-term live courses tailored
                             to cover one chapter each. Many SSC and HSC students
                             face setbacks and academic challenges, leading to

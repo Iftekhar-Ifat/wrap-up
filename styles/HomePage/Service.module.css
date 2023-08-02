@@ -31,9 +31,8 @@
 
 .teacher_card {
     width: 568px;
-    height: 293px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    height: auto;
+    box-shadow: rgba(82, 84, 87, 0.2) 0px 8px 24px;
     margin: 5%;
     padding: 2%;
 }
@@ -89,7 +88,7 @@
 @media screen and (max-width: 500px) {
     .teacher_card {
         flex-direction: column;
-        height: 530px;
+        height: auto;
         width: 280px;
     }
     .flexxx {

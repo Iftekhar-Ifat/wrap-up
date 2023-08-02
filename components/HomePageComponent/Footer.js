@@ -32,7 +32,10 @@ const Footer = () => {
                     </div>
                 </div>
                 <small className="d-flex justify-content-center text-white mt-1 pb-1">
-                    © 2023 WrapUpSchool | All Rights Reserved | Developed by
+                    © 2023 WrapUpSchool | All Rights Reserved
+                </small>
+                <small className="d-flex justify-content-center text-white mt-1 pb-1">
+                    Developed by
                     <Link
                         className="ms-1"
                         href="https://iftekhar.vercel.app/"

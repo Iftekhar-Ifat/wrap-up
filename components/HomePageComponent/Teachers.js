@@ -9,17 +9,17 @@ const Teachers = props => {
             <div className={`${styles.teacher_card} d-flex py-4`}>
                 <div className="d-flex justify-content-center">
                     <Image
-                        className="p-1"
+                        className="m-1"
                         src={img}
                         style={{ borderRadius: '100px' }}
-                        alt=""
+                        alt="teacher-img"
                         width="210"
                         height="210"
                     />
                 </div>
                 <div className="p-3">
                     <p className="fs-3 fw-bold">{name}</p>
-                    <p>{dept}</p>
+                    <p className="mb-0">{dept}</p>
                     <p>{institute}</p>
                     <a
                         className={`${styles.prof_btn}`}
