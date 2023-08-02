@@ -4,7 +4,7 @@
         "name": "Minhaj",
         "institute": "SUST",
         "dept": "Computer Science & Engineering",
-        "img": "https://drive.google.com/uc?export=view&id=1XBryULR_7XJYoKU-hJOnKU_DEDchS6e1",
+        "img": "/data/Teachers/minhaj.jpg",
         "fb": "https://www.facebook.com/minhajahmed111",
         "number": "01712934023;"
     },
@@ -22,8 +22,8 @@
         "name": "Numan",
         "institute": "BUET",
         "dept": "Electrical and Electronics Engineering",
-        "img": "https://drive.google.com/uc?export=view&id=1-8qHeiqH-l6XPxV0US3n4Y9ShByBxf8w",
-        "fb": "https://www.facebook.com/faiyamchowdhury.chowdhury.1",
+        "img": "/data/Teachers/numan.jpg",
+        "fb": "https://www.facebook.com/abdullah.numan.12327",
         "number": "01712934023;"
     },
     {
@@ -31,7 +31,7 @@
         "name": "Yasir",
         "institute": "BUET",
         "dept": "Chemical Engineering",
-        "img": "https://drive.google.com/uc?export=view&id=11-54jSCcz5ghaUFGj2ZGdjNzmXZvPyhA",
+        "img": "/data/Teachers/yasir.jpg",
         "fb": "https://www.facebook.com/yasirarafath.khan.7",
         "number": "01712934023;"
     }

@@ -27,7 +27,10 @@ const CourseInfoCard = ({ course }) => {
 
                 <Card.Body>
                     {course.chapters.map(chapter => (
-                        <div className="border p-2" key={chapter.chapter_id}>
+                        <div
+                            className="border p-2 rounded"
+                            key={chapter.chapter_id}
+                        >
                             <Card.Title>{chapter.chapter_name}</Card.Title>
                             <ul>
                                 <li>
@@ -46,16 +49,17 @@ const CourseInfoCard = ({ course }) => {
                         <Button
                             variant="danger"
                             type="submit"
+                            className="me-2"
                             onClick={handleCancel}
-                            disabled={course.status !== 'Enrolled'}
+                            disabled={course.status === 'In Progress'}
                         >
-                            Cancel
+                            {course.status === 'Enrolled' ? 'Cancel' : 'Remove'}
                         </Button>
 
                         <Button
                             variant="primary"
                             onClick={handleUpdate}
-                            className="ms-4"
+                            className="ms-2"
                             disabled={course.status !== 'Enrolled'}
                         >
                             Purchase

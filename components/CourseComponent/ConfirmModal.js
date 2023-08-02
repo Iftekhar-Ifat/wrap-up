@@ -18,6 +18,7 @@ import {
     updateDoc,
     where,
 } from '../../lib/firebase';
+import { useRouter } from 'next/router';
 
 const ConfirmModal = ({
     showModal,
@@ -25,6 +26,7 @@ const ConfirmModal = ({
     setShowModal,
     enrolledObject,
 }) => {
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const [formValidated, setFormValidated] = useState(false);
     const [version, setVersion] = useState('');
@@ -70,6 +72,7 @@ const ConfirmModal = ({
                 });
                 console.log('Enrollment successful');
                 setShowModal(false);
+                router.push('/profile');
             } else {
                 console.log('User document does not exist');
             }
@@ -178,7 +181,7 @@ const ConfirmModal = ({
                             type="submit"
                             disabled={isLoading}
                         >
-                            {isLoading ? 'Loading...' : 'Purchase'}
+                            {isLoading ? 'Loading...' : 'Enroll'}
                         </Button>
                     </div>
                 </Form>

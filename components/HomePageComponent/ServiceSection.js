@@ -155,22 +155,36 @@ const ServiceSection = () => {
                 </div>
             </div>
             <div className="container mt-5 text-center">
-                <h3 className="fw-bolder fs-1">
+                <h3 className="fw-bolder fs-1 mb-5">
                     Start your learning <br />
                     journey today!
                 </h3>
-                <p>
-                    The best and cheapest way to deal with your drawbacks and
-                    build a strong foundation on any topic.
-                </p>
-                <Button
-                    variant="outline-primary"
-                    target="_blank"
-                    href="https://www.facebook.com/wrapupschool"
-                    rel="noreferrer"
-                >
-                    Contact Us
-                </Button>
+                <div className="row">
+                    <div className="col-md-6">
+                        <p className="lead" style={{ textAlign: 'justify' }}>
+                            Our program offers short-term live courses tailored
+                            to cover one chapter each. Many SSC and HSC students
+                            face setbacks and academic challenges, leading to
+                            distress and demotivation. If you&apos;re in such a
+                            situation, consider taking action to complete your
+                            unfinished work. We&apos;re here to support you on
+                            this journey, providing an effective way to catch up
+                            on your syllabus and succeed in the challenge
+                            you&apos;ve undertaken. With young instructors from
+                            BUET and DMC, every course will be enjoyable and
+                            fruitful.
+                        </p>
+                    </div>
+                    <div className="col-md-6 d-flex justify-content-center align-items-center">
+                        <Image
+                            className="rounded img-fluid"
+                            src="/assets/service_hero.svg"
+                            alt="intro-hero"
+                            width={500}
+                            height={500}
+                        />
+                    </div>
+                </div>
             </div>
             <section
                 id="faqSec"
