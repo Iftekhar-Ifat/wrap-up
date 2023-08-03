@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Minhaj",
+        "name": "Minhaj Ahmed",
         "institute": "SUST",
         "dept": "Computer Science & Engineering",
         "img": "/data/Teachers/minhaj.jpg",
@@ -10,7 +10,7 @@
     },
     {
         "id": 2,
-        "name": "Rafsun",
+        "name": "Rafsun Tahmid",
         "institute": "BUET",
         "dept": "Chemical Engineering",
         "img": "https://drive.google.com/uc?export=view&id=1d3NenNtAmmkdDhsjlrvfQHg80u7TJoeA",
@@ -19,7 +19,7 @@
     },
     {
         "id": 3,
-        "name": "Numan",
+        "name": "Abdullah Al Numan",
         "institute": "BUET",
         "dept": "Electrical and Electronics Engineering",
         "img": "/data/Teachers/numan.jpg",
@@ -28,7 +28,7 @@
     },
     {
         "id": 4,
-        "name": "Yasir",
+        "name": "Yasir Arafath Khan",
         "institute": "BUET",
         "dept": "Chemical Engineering",
         "img": "/data/Teachers/yasir.jpg",

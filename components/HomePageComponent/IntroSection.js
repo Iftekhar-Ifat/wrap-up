@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import styles from '../../styles/HomePage/Intro.module.css';
+import redCircle from '../../public/assets/red_circle.svg';
 
 const IntroSection = () => {
     return (
@@ -10,8 +11,8 @@ const IntroSection = () => {
                 <Row>
                     <Col lg="6" xs="12">
                         <h1 className={`text-white fw-bold ${styles.h1_tag}`}>
-                            দেশের প্রথম SSC ও HSC এর প্রত্যেক বিষয়ের
-                            চাপ্টারভিত্তিক LIVE ONLINE CLASS!
+                            দেশের প্রথম SSC ও HSC বিজ্ঞান বিভাগের প্রত্যেক
+                            বিষয়ের চ্যাপ্টারভিত্তিক LIVE ONLINE CLASS!
                         </h1>
                     </Col>
                     <Col lg="6" xs="12">

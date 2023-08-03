@@ -170,9 +170,9 @@ const ServiceSection = () => {
                             unfinished work. We&apos;re here to support you on
                             this journey, providing an effective way to catch up
                             on your syllabus and succeed in the challenge
-                            you&apos;ve undertaken. With young instructors from
-                            BUET and DMC, every course will be enjoyable and
-                            fruitful.
+                            you&apos;ve undertaken. With talented instructors
+                            from BUET and DMC, every course will be enjoyable
+                            and fruitful.
                         </p>
                     </div>
                     <div className="col-md-6 d-flex justify-content-center align-items-center">

@@ -34,7 +34,7 @@ const Footer = () => {
                 <small className="d-flex justify-content-center text-white mt-1 pb-1">
                     © 2023 WrapUpSchool | All Rights Reserved
                 </small>
-                <small className="d-flex justify-content-center text-white mt-1 pb-1">
+                {/* <small className="d-flex justify-content-center text-white mt-1 pb-1">
                     Developed by
                     <Link
                         className="ms-1"
@@ -44,7 +44,7 @@ const Footer = () => {
                     >
                         Iftekhar
                     </Link>
-                </small>
+                </small> */}
             </div>
             <div
                 className="position-fixed fixed-bottom d-flex justify-content-end"

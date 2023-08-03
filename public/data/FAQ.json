@@ -1,23 +1,15 @@
 [
     {
         "id": 1,
-        "ques": "How do I enroll on a course?",
-        "ans": "First, you have to go to courses, choose a course and remember the chapter code and the number of classes from there. Once you've decided, click on Enroll now and you will be redirected to an application form. Fill that up. Then you will recieve an email containing further instructions. The email will also contain another payment form. You'll have to fill up the payment form after your payment. Upon completion of the mentioned processes, you will receive an email containing class time and class link."
+        "ques": "কিভাবে Wrap Up School এর Course এ enroll করবেন?",
+        "ans": "এই Website এ গিয়ে প্রথমে Create Account এ গিয়ে একটি account create করতে হবে। Account create করার পর course এ গিয়ে SSC/HSC section থেকে আপনার পছন্দমতো Course গুলো বাছাই করে enroll বাটনে ক্লিক করুন। course enroll করার পর Bkash এর মাধ্যমে payment করে Transaction ID ও Bkash নাম্বার দিয়ে Enroll সম্পন্ন করতে হবে।  Payment complete হলে  email/sms এর মাধ্যমে zoom link দিয়ে দেয়া হবে। খুব শীগ্রই enrollment procedure এর উপর ওয়েবসাইটে আমাদের ভিডিও পাওয়া যাবে।",
+        "link": "https://www.facebook.com/100075728809717/posts/pfbid026x5fhG2pvzyjwjeytCo43GCJKkgr8kKtEmNaPLRfx1vAsD9Y3PfvhYtQvzmdbKQal",
+        "click": "Video Link"
     },
     {
         "id": 2,
-        "ques": "I am an HSC examinee. But I am facing some problems on particular topics. Then which course should I enroll on?",
-        "ans": "If you are an HSC examinee and facing problems on particular topics in a chapter or two chapters, then problem solving course is perfect for you."
-    },
-    {
-        "id": 3,
-        "ques": "Isn't the price of those courses too high?",
-        "ans": "If you want to know the answer, you have to know what we offer. We will provide chapter wise courses and we think we are unique in that section. And we will provide one teacher for a student. But our services are indeed online and we take 250 taka for each class. Considering the services we provide, we believe amount is not too high."
-    },
-    {
-        "id": 4,
         "ques": "Give your feedback to us",
-        "link": "https://forms.gle/AeMv3rn1WQm8RA198",
+        "link": "https://www.facebook.com/wrapupschool/reviews",
         "click": "Click Here",
         "here": "to drop your valuable feedback and help us improve."
     }

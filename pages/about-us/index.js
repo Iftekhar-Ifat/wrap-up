@@ -27,9 +27,9 @@ const AboutUs = () => {
                     right away. And here we are here to provide you with a way
                     to wrap up your incomplete syllabus and make sure to
                     experience a successful ending to the challenge you have
-                    taken. We are confident with our group of young instructors
-                    (students from BUET and DMC) to make every course enjoyable
-                    for you.
+                    taken. We are confident with our group of talented
+                    instructors (students from BUET and DMC) to make every
+                    course enjoyable for you.
                 </p>
             </div>
             <section className="container category-container row mx-auto">
