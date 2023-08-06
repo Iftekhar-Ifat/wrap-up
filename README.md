@@ -1,34 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Wrap Up School
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+SSC ও HSC বিজ্ঞান বিভাগের সকল শিক্ষার্থীদের জন্য দেশে প্রথমবারের মত WRAP UP SCHOOL নিয়ে এসেছে চ্যাপ্টারভিত্তিক Short term Live ONLINE Courses.
+শিক্ষার্থীরা এককভাবে অথবা একসাথে তিনজন মিলে যেকোনো বিষয়ের যেকোনো চ্যাপ্টারের জন্য Course Enroll করে নিতে পারবে। সুযোগ রয়েছে নিজের পছন্দমতো time slot বেছে নেওয়ার। থাকছে প্রতিসপ্তাহের ONGOING নির্দিষ্ট কিছু চ্যাপ্টারের জন্য 1 v 3 কোর্স। যেখানে সর্বোচ্চ তিন জনের একটি ব্যাচে যেকোনো শিক্ষার্থী এককভাবে enroll করে নিতে পারবে। এছাড়াও SSC/HSC পরীক্ষার্থীদের জন্য আছে TEST PAPER এর যেকোনো সমস্যা সমাধান করে নেয়ার সুযোগ। এ ব্যাপারে যেকোনো query থাকলে ইনবক্স করতে পারেন আমাদের পেজে।
+বাংলাদেশের প্রেক্ষাপটে প্রতিযোগিতামুলক পরিবেশের কল্যাণে মাধ্যমিক এবং উচ্চ মাধ্যমিকের শিক্ষার্থীদের মধ্যে যেমন সবার থেকে একধাপ এগিয়ে থাকার মনোভাব লক্ষ্যণীয় ঠিক তেমনি প্রতিনিয়ত পিছিয়ে পড়া শিক্ষার্থীদের সংখ্যা ও নেহাত কম নয়। WRAP UP SCHOOL এক্ষেত্রে আপনাকে সাহায্য করতে পারে -
+to stay one step ahead or to make a strong comeback.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+[Facebook Page](https://www.facebook.com/wrapupschool)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Enrollment Procedure
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![video](./public/meta_img.jpg)](./public/assets/wrapup_enrollment_procedure.mp4)
