@@ -11,4 +11,5 @@ to stay one step ahead or to make a strong comeback.
 
 ### Enrollment Procedure
 
-https://github.com/Iftekhar-Ifat/wrap-up/assets/54566755/8bb0df01-f556-4957-8d0b-ffebf9f88869
+https://github.com/Iftekhar-Ifat/wrap-up/assets/54566755/90247b04-6139-4e7a-81cf-7f8928f907f5
+
