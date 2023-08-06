@@ -11,4 +11,4 @@ to stay one step ahead or to make a strong comeback.
 
 ### Enrollment Procedure
 
-[![video](./public/meta_img.jpg)](./public/assets/wrapup_enrollment_procedure.mp4)
+[![video](./public/meta_img.jpg)](https://www.facebook.com/watch/?v=295972492980046)
